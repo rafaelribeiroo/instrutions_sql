@@ -1,0 +1,107 @@
+Memorando:
+
+	< Banco de dados contém Tabelas;
+	< Tabelas contém Registros;
+	< Registros são compostos por Campos.
+
+Analogia para entender a estrutura:
+
+	Suponhamos que tenho um amigo chamado Godofredo, possuindo as características (ATRIBUTOS):
+	> Idade: 32 anos
+	> Sexo: Masc
+	> Peso: 78.5 Kg
+	> Altura: 1.83 m
+	> Nacionalidade: Brasil
+
+	Ele se casou com a Dolores, que tem:
+	> Idade: 30 anos
+	> Sexo: Fem
+	> Peso: 52.3 Kg
+	> Altura: 1.65m
+	> Nacionalidade: México
+
+	Nasceu Godolores:
+	> Idade: 3 anos
+	> Sexo: Fem
+	> Peso: 25.8 Kg
+	> Altura: 1.10
+	> Nacionalidade: Estados Unidos
+
+	Agruparemos essa família em um contêiner chamado: 'Pessoas', percebemos então que todos os registros acima possuem as mesmas características, o que nomeamos de Instâncias/Pessoas diferentes umas das outras.
+		> Esse é o objetivo do banco de dados, REGISTRAR INSTÂNCIAS SEPARADAS de coisas que tem características semelhantes.
+
+	Suponhamos que temos um outro contêiner chamado: 'Jogos', que vão conter outras características separadas, tais como: Nome, Data de Lançamento, Plataforma etc.
+
+	Adicionaremos agora todos esses contêineres em um único navio.
+
+Contexto de BD:
+
+	No mundo de banco de dados tudo isso têm nomes.
+
+	> O NAVIO é nosso BANCO DE DADOS (Coleções de dados)
+	> Os CONTÊINERES são nossas TABELAS (Conjunto de características semelhantes)
+	> Os dados (INSTÂNCIAS) que estão dentro das tabelas são meus REGISTROS.
+
+Prática:
+
+	1. Acessar nossa linguagem de exploração PostgreSQL
+	$ sudo -u postgres psql
+
+	2. Criação do nosso banco de dados (Navio)
+	postgres=# create database <nome_banco>;
+
+	3. Acessando nosso banco
+	postgres=# \c <nome_banco>;
+	# E para voltar ao status quo:
+	<nome_banco>=# \c postgres postgres
+
+		Tipos de dados no BD para a próxima etapa:
+
+		> Númericos:
+			Inteiro: TinyInt, SmallInt, Int, MediumInt, BigInt;
+			Real: Decimal, Float, Double, Real;
+			Lógico: Bit, Boolean.
+
+		> Data/Tempo:
+			Date: Data;
+			DateTime: Data com hora;
+			TimeStamp: Data/Hora atual;
+			Time: Tempo;
+			Year: Ano.
+
+		> Literal:
+			Caractere: Var e VarChar;
+			Texto: TinyText, Text, MediumText, LongText;
+			Binário (Permite guardar qualquer coisa em binário): TinyBlob, Blob, MediumBlob, LongBlob
+			Coleção (Quais são os valores permitidos): Enum, Set
+
+		Verificar restante abaixo:
+		> https://www.postgresql.org/docs/9.5/datatype.html
+
+	4. Criação da nossa tabela (Contêiner)
+	<banco>=# CREATE TABLE <nome_tabela> (
+		-- <nome_coluna> <tipo_primário>(limite_entrada_dados),
+		nome varchar(30),
+		idade integer(3),
+		sexo char(1),
+		peso decimal,
+		altura float,
+		nacionalidade varchar(20)
+	);
+
+	5. Detalhes da tabela
+	<banco>=# \d <nome_tabela>;
+
+	6. BD criados (todas as bases de dados)
+	postgres=# \l
+
+	7. Connect a base de dados tal
+	postgres=# \c <nome_banco>
+	# To go back
+	<nome_banco>=# \c postgres postgres
+
+	8. Verificar qual banco está aberto
+	# Aparecerá no início da linha
+
+	9. Ver todas as tabelas do banco
+	<banco>=# \dt
