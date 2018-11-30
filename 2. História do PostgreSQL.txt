@@ -1,0 +1,34 @@
+História: Surgiu na universidade de Berkeley em 1973, por Michael Stonebraker
+e Eugene Wong, quando decidiram iniciar um projeto de Banco de Dados
+Relacional (Ingres). Logo após, o Stonebraker decidiu comercializar
+o Ingres, mas voltou logo em seguida para resolver o que considerava
+ser limitações do modelo relacional. Por fim, o Ingres se tornou Postgres e
+é mantido pela comunidade até hoje, open-source.
+
+Algumas empresas que utilizam o BD PostgreSQL:
+Apple; RedHat; Sun; Fujitsu.
+
+Além de todos os princípios citados anteriormente (Ver arquivo: "1. O que é"),
+o PostgreSQL tem uma linguagem de exploração tão potente que tem comandos
+específicos para determinadas situações.
+
+< As instruções (Classificações dos comandos) se caracterizam pelos tipos:
+
+	> DDL (linguagem de DEFINIÇÃO): Criar/Deletar tabela/banco, DEFINE A
+	ESTRUTURA;
+	> DML (MANIPULAÇÃO): Registrar/Apagar/MANIPULAR DADOS;
+	> DQL (SOLICITAÇÕES): Fazer select;
+	> DCL (CONTROLE): Definição de quais usuários poderão acessar meu banco.
+	Tipo do acesso, Tipos de comando eles poderão executar.
+	> DTL (TRANSAÇÕES): Qualquer solicitação que pode ser feita a um banco de
+	dados e ele te atenderá da melhor forma possível.
+		< Seguindo as 4 características (DICA) de uma boa transação:
+			> Durabilidade: Todo o dado que é inserido/manipulado tem que
+			permanecer durável (até o momento que eu remover);
+			> Isolamento: Se eu tenho 2 transações sendo executadas ao mesmo
+			momento, uma não pode interferir na outra;
+			> Consistência: Toda transação tem que levar o BD de um estado
+			consistente a outro consistente.
+			> Atomicidade: Toda transação têm que ser atômica, ou toda ela
+			acontece ou nada acontece (Ou tudo dá certo ou, se der erro,
+			volte ao estado anterior consistente).
