@@ -1,0 +1,58 @@
+Memorando: https://www.postgresql.org/docs/9.1/sql-altertable.html
+
+$ sudo -u postgres psql
+postgres-# \c cursoemvideo
+
+1. Descrição da tabela pessoas
+cursoemvideo=# \d pessoas;
+
+2. E se quisermos adicionar uma nova coluna em nossa tabela?
+cursoemvideo=# alter table pessoas
+               add profissao varchar(10);
+               -- Ou add column...
+=# \d pessoas;
+=# select * from pessoas;
+# As pessoas ficam com profissao nula, posteriormente vamos aprender a
+# adicionar aos registros existentes.
+
+3. E para remover alguma coluna?
+cursoemvideo=# alter table pessoas
+               drop profissao;
+
+4. Para adicionar uma coluna em uma posição:
+> No MySQL o Guanabara mostra as constraint's: "FIRST" e "AFTER", no Post
+não temos essa opção, por uma razão. Cada consulta deve listar todos os
+fields independente da ordem, o que torna a ordem, insignificante.
+
+5. Podemos modificar o limite de caracteres da profissao?
+# Não só o limite como diversas coisas.
+=# alter table pessoas
+   -- o Default é necessário porque senão os registros anteriores
+   -- ficarão sem dados, e como é not null, não pode!
+   alter profissao type varchar(20),
+   alter profissao set not null,
+   alter profissao set default '_blank';
+
+ 6. E para alterar o nome da coluna?
+ =# alter table pessoas
+    rename profissao to prof;
+
+7. Ao invés de alterar coluna, podemos alterar a tabela também
+=# alter table pessoas
+   rename to gafanhotos
+=# \d gafanhotos;
+
+8. Vamos criar uma nova tabela...
+=# create table if not exists cursos (
+    -- A constraint unique assegura que todos os valores serão únicos
+    idcurso   int4 primary key;
+    nome      character varying(30) not null unique,
+    descricao text,
+    -- O UNSIGNED que ele cita no vídeo não tem no PostgreSQL, mas tem uma forma de permitir números não negativos também
+    carga     int4 check (carga > 0),
+    totaulas  int4,
+    ano       character varying(4) default '2018',
+)
+
+8. Para apagarmos uma tabela
+postgres=# drop database if exists <nome_tabela>;

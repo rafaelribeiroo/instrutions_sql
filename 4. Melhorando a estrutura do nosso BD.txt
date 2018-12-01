@@ -13,7 +13,7 @@ $ sudo -u postgres psql
 1. Deletar um BD
 postgres=# drop database <nome_banco>;
 
-2. Recriando nosso BD, quando informamos createDB o PostgreSQL implementa 
+2. Recriando nosso BD, quando informamos createDB o PostgreSQL implementa
 todas as linhas abaixo, o que torna bem mais prático (diferente do MySQL)
 postgres=# create database <nome_banco>;
            -- Para testar as linhas abaixo, não colocar o ; acima
@@ -39,9 +39,10 @@ queiramos), diferente do MySQL.
     nacionalidade varchar(20)
 );
 
-Porque removemos idade? Porque não se insere uma coluna de idade. Caso contrário,
-teremos que ficar alterando de ano em ano, então manipulamos esses dados através
-da programação com o dado nascimento.
+Porque removemos idade? Porque não se insere uma coluna de idade. Caso
+contrário, teremos que ficar alterando de ano em ano, então
+manipulamos esses dados através da programação com o dado
+nascimento.
 
 Antes de passar para o próximo step, um memorando.
 Memorando: CONSTRAINT's são regras que definiremos para criação de coisas
@@ -64,24 +65,25 @@ dentro do nosso BD.
 );
 
 Pera Rafael, me explique uma coisa. Qual a diferença entre VAR e VarChar?
-No postgre, se você definir que um atributo com tipo primitivo usará 100
+No Postgre, se você definir que um atributo com tipo primitivo usará 100
 caracteres, ele ocupará todos (mesmo que você tenha inserido apenas 10),
 já o VarChar usará apenas o que você digitou, anulando o restante (90).
 
 > Pronto, criamos a tabela tudo OK, correto? Ainda não! Pois eu posso
 me auto-cadastrar inúmeras vezes, pensando nisso todos os BD relacionais
 possuem uma tratativa, o que chamamos de CHAVE PRIMÁRIA, todas as tabelas
-devem ter, já que chaves primárias são únicas. Legal, meu nome pode ter 
+devem ter, já que chaves primárias são únicas. Legal, meu nome pode ter
 chave primária? Não! Já que podem ter várias pessoas com o mesmo nome
 (homônimo), agora CPF/ID é único para cada indivíduo, pois então...
 
 5. Recriação com chave primária
+<banco>=# CREATE TYPE definicao AS ENUM ('M', 'F');
 <banco>=# CREATE TABLE pessoas (
     -- Na maioria das linguagens, você precisa adicionar uma CONSTRAINT
     -- nomeada: 'AUTO INCREMENT', mas o Postgre já possui um tipo
     -- primitivo que vêm com essa constraint já aplicada.
-    id            smallserial PRIMARY KEY
-    -- Será através do ID que identificaremos os registros na nossa 
+    id            smallserial PRIMARY KEY,
+    -- Será através do ID que identificaremos os registros na nossa
     -- tabela, então inserimos a CONSTRAINT primary key
     nome          varchar(30) NOT NULL,
     nascimento    date,
@@ -92,7 +94,8 @@ chave primária? Não! Já que podem ter várias pessoas com o mesmo nome
 );
 
 OBS: É possível que você veja alguns exemplos com crase no nome dos atributos,
-utilizamos quando queremos incluir acentos em nossos atributos, funciona normal.
+utilizamos quando queremos incluir acentos em nossos atributos, funciona
+normal.
 Ex: CREATE TABLE `pessoas` (
     `nome`          varchar(30) NOT NULL,
     ...

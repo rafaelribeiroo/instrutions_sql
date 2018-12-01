@@ -7,7 +7,8 @@ para fazer isso, precisamos conhecer um pouco mais sobre o: 'INSERT INTO (
 Inserir dentro)'; Alimentar nossa base de dados.
 
 Construímos uma narrativa ao longo desse aprendizado que consistia na família
-de Godofredo, e agora chegou a hora de inserirmos eles em nosso banco de dados.
+de Godofredo, e agora chegou a hora de inserirmos eles em nosso banco de
+dados.
 
 > Relembrando a última instrução da aula passada:
 <banco>=# CREATE TABLE pessoas (
@@ -22,11 +23,11 @@ de Godofredo, e agora chegou a hora de inserirmos eles em nosso banco de dados.
 
 .. Até o momento, vimos apenas os comandos DDL. Agora, partimos para os DML ..
 
-Para facilitar o aprendizado, coloque todas as características das pessoas 
+Para facilitar o aprendizado, coloque todas as características das pessoas
 dentro de parênteses.
 (id, nome, nascimento, sexo, peso, altura, nacionalidade)
 
-E por fim, os valores a serem atribuídos.		
+E por fim, os valores a serem atribuídos.
 (1, 'Godofredo', '1984-01-02', 'M', 78.5, 1.83, 'Brasil');
 
 Agora, vamos unir ambas as linhas:
@@ -49,7 +50,7 @@ Quer verificar se realmente cadastrou?
 SELECT * from pessoas;
 -- Calma que aprenderemos mais sobre esse comando futuramente
 
-OBS: Se a ordem estiver da mesma forma como foi incluído na tabela do BD, 
+OBS: Se a ordem estiver da mesma forma como foi incluído na tabela do BD,
 podemos fazer a inserção sem descrever os campos, como abaixo:
 INSERT INTO pessoas
 VALUES (DEFAULT, 'Rafael', '1994-07-27', 'M', 85.5, 1.80, 'Irlanda');

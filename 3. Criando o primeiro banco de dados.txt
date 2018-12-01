@@ -6,7 +6,8 @@ Memorando:
 
 Analogia para entender a estrutura:
 
-	Suponhamos que tenho um amigo chamado Godofredo, possuindo as características (ATRIBUTOS):
+	Suponhamos que tenho um amigo chamado Godofredo, possuindo as
+	características (ATRIBUTOS):
 	> Idade: 32 anos
 	> Sexo: Masc
 	> Peso: 78.5 Kg
@@ -27,10 +28,15 @@ Analogia para entender a estrutura:
 	> Altura: 1.10
 	> Nacionalidade: Estados Unidos
 
-	Agruparemos essa família em um contêiner chamado: 'Pessoas', percebemos então que todos os registros acima possuem as mesmas características, o que nomeamos de Instâncias/Pessoas diferentes umas das outras.
-		> Esse é o objetivo do banco de dados, REGISTRAR INSTÂNCIAS SEPARADAS de coisas que tem características semelhantes.
+	Agruparemos essa família em um contêiner chamado: 'Pessoas', percebemos
+	então que todos os registros acima possuem as mesmas características, o
+	que nomeamos de Instâncias/Pessoas diferentes umas das outras.
+		> Esse é o objetivo do banco de dados, REGISTRAR INSTÂNCIAS SEPARADAS
+		de coisas que tem características semelhantes.
 
-	Suponhamos que temos um outro contêiner chamado: 'Jogos', que vão conter outras características separadas, tais como: Nome, Data de Lançamento, Plataforma etc.
+	Suponhamos que temos um outro contêiner chamado: 'Jogos', que vão conter
+	outras características separadas, tais como: Nome, Data de Lançamento,
+	Plataforma etc.
 
 	Adicionaremos agora todos esses contêineres em um único navio.
 
@@ -38,8 +44,9 @@ Contexto de BD:
 
 	No mundo de banco de dados tudo isso têm nomes.
 
-	> O NAVIO é nosso BANCO DE DADOS (Coleções de dados)
-	> Os CONTÊINERES são nossas TABELAS (Conjunto de características semelhantes)
+	> O NAVIO é nosso BANCO DE DADOS (Coleções de dados);
+	> Os CONTÊINERES são nossas TABELAS (Conjunto de características
+	semelhantes);
 	> Os dados (INSTÂNCIAS) que estão dentro das tabelas são meus REGISTROS.
 
 Prática:
@@ -58,22 +65,19 @@ Prática:
 		Tipos de dados no BD para a próxima etapa:
 
 		> Númericos:
-			Inteiro: TinyInt, SmallInt, Int, MediumInt, BigInt;
-			Real: Decimal, Float, Double, Real;
-			Lógico: Bit, Boolean.
+			Inteiro: Smallint, Int4, Int, Bigint, Serial (Autoincrement);
+			Real: Real, Double, Float8, Decimal;
+			Lógico: Boolean.
 
 		> Data/Tempo:
-			Date: Data;
-			DateTime: Data com hora;
-			TimeStamp: Data/Hora atual;
-			Time: Tempo;
-			Year: Ano.
-
-		> Literal:
-			Caractere: Var e VarChar;
-			Texto: TinyText, Text, MediumText, LongText;
-			Binário (Permite guardar qualquer coisa em binário): TinyBlob, Blob, MediumBlob, LongBlob
-			Coleção (Quais são os valores permitidos): Enum, Set
+			Time: Horário (Sem fuso horário)
+			Timetz: Horário (Com fuso horário)
+			Timestamp: Data e horário (Sem)
+			Timestamptz: Data e horário (Com)
+		Mas a nível de BD, o que é fuso horário?
+		< Quando você altera o fuso horário do seu servidor de banco (US to
+		BR), o valor armazenado no seu campo (atributo) não altera
+		automaticamente.
 
 		Verificar restante abaixo:
 		> https://www.postgresql.org/docs/9.5/datatype.html
