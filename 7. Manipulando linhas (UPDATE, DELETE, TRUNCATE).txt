@@ -1,12 +1,9 @@
 Memorando: > Linhas são registros ou tuplas
 		   > Colunas são meus campos ou atributos.
 
-Manipulando registros
-			linhas
-			tuplas			
-Todos são sinônimos
+Manipulando REGISTROS/LINHAS/TUPLAS (Sinônimos)
 
-1. Para manipular linhas, precisamos delas. Então:
+1. Para manipular linhas, precisamos delas.
 insert into cursos
 (idcurso, nome, descricao, carga, totaulas, ano)
 values
@@ -31,8 +28,17 @@ update cursos
 set nome = 'PHP', ano = '2015'
 where idcurso = 4;
 
-4. Modificar todos os valores de uma mesma coluna
+4. Alterar valores em várias tuplas
 update cursos
-set nome = 'Java', ano = '2015', carga = '40'
-where idcurso = 5
-LIMIT 1;
+set ano = '2050', carga = '800'
+where ano = '2018';
+
+OBS: Mas use com sabedoria, se aplicar um UPDATE com where genérico
+vai alterar em todos os registros, SEM CTRL + Z.
+
+5. Apagar registros específicos
+delete from cursos
+where ano='2018';
+
+6. Apagar todos os registros de uma tabela
+truncate cursos;
