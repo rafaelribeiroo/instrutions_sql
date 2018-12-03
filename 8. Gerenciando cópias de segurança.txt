@@ -1,0 +1,32 @@
+Memorando: O Backup do nosso BD é chamado de DUMP.
+
+1. Vá até o PGAdmin4, autentique e clique com o botão direito no BD
+Backup...
+
+2. Descreva um nome de arquivo no Filename
+
+3. Escolha o formato Custom
+
+4. Encoding em UTF-8
+
+5. Role name Postgres
+
+> Backup;
+
+Agora vá até o Query Tool... (Right click again)
+drop table cursos
+select * from cursos -- Nada
+drop table gafanhotos
+select * from gafanhotos -- Nada
+
+1. Right Click > Restore...
+
+2. Formato Custom
+
+3. Selecione seu arquivo no seu desktop
+
+4. Role name Postgres
+
+Após realizado, volte ao Query Tool e...
+select * from cursos
+select * from gafanhotos
