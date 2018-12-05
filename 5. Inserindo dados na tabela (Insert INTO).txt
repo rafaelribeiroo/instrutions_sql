@@ -67,3 +67,5 @@ VALUES
 ('Richelly', '1990-03-03', 'F', 65.2, 1.63, 'Brasil'),
 ('Francielly', '1989-07-12', 'F', 98.5, 1.65, 'Brasil'),
 ('Gabriel', '1987-11-06', 'M', 97.7, 1.92, 'Brasil');
+
+<banco>=#\! clear

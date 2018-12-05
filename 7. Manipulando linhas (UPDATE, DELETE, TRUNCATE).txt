@@ -31,7 +31,7 @@ where idcurso = 4;
 4. Alterar valores em várias tuplas
 update cursos
 set ano = '2050', carga = '800'
-where ano = '2018';
+where ano = '2018' and totaulas = 30;
 
 OBS: Mas use com sabedoria, se aplicar um UPDATE com where genérico
 vai alterar em todos os registros, SEM CTRL + Z.
@@ -42,3 +42,6 @@ where ano='2018';
 
 6. Apagar todos os registros de uma tabela
 truncate cursos;
+
+7. Limpar tela
+<banco>=#\! clear

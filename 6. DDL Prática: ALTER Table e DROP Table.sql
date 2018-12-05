@@ -31,13 +31,13 @@ rename to gafanhotos
 
 -- Creating another table, with more constraint's
 create table if not exists cursos (
-    idcurso   int4 primary key;
+    idcurso   int4 primary key,
     nome      character varying(30) not null unique,
     descricao text,
     carga     int4 check (carga >= 0),
     totaulas  int4,
-    ano       character varying(4) default '2018',
-)
+    ano       character varying(4) default '2018'
+);
 
 /* Se quiser modificar o check depois, basta */
 alter table cursos

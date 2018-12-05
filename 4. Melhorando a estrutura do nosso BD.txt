@@ -8,6 +8,7 @@ Caso contrário, ele entende que você quer continuar a instrução.
 Para melhorar o que já criamos no arquivo anterior, precisamos remover o
 existente e recriá-lo de uma forma melhor.
 
+# Acessando nosso console
 $ sudo -u postgres psql
 
 1. Deletar um BD

@@ -9,6 +9,7 @@ CREATE TABLE pessoas (
     -- CONSTRAINT: PRIMARY KEY
     id            smallserial PRIMARY KEY,
     nome          varchar(30) NOT NULL,
+    profissao     varchar(20),
     nascimento    date,
     sexo          definicao default 'M',
     peso          decimal(5, 2),

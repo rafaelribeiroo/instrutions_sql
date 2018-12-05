@@ -54,6 +54,9 @@ fields independente da ordem, o que torna a ordem, insignificante.
     ano       character varying(4) default '2018',
 )
 
+Mas qual a diferença entre PRIMARY KEY e UNIQUE?
+< Primary key além de ter a constraint unique tem outras características também
+
 /* Se quiser modificar o check depois, basta
 alter table cursos
 add constraint check_positive check (carga >= 0);
@@ -63,6 +66,8 @@ alter table cursos
 drop constraint if exists <nome_constraint>
 */
 
-
 8. Para apagarmos uma tabela
 postgres=# drop database if exists <nome_tabela>;
+
+9. Limpar tela
+<banco>=#\! clear

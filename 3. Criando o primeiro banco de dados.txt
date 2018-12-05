@@ -51,13 +51,13 @@ Contexto de BD:
 
 Prática:
 
-	1. Acessar nossa linguagem de exploração PostgreSQL
+	1. Acessar nosso console PostgreSQL
 	$ sudo -u postgres psql
 
 	2. Criação do nosso banco de dados (Navio)
 	postgres=# create database <nome_banco>;
 
-	3. Acessando nosso banco
+	3. Acessando nosso banco pelo console
 	postgres=# \c <nome_banco>;
 	# E para voltar ao status quo:
 	<nome_banco>=# \c postgres postgres
@@ -109,3 +109,7 @@ Prática:
 
 	9. Ver todas as tabelas do banco
 	<banco>=# \dt
+
+	10. Limpar tela
+	<banco>=#\! clear
+
