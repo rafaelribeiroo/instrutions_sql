@@ -1,0 +1,46 @@
+Memorando: DISTINCT, buscar apenas uma ocorrência
+
+Agora, iremos agrupar.
+
+select carga from cursos 
+group by carga;
+
+< INSTEAD OF >
+
+select distinct carga from cursos
+order by carga;
+
+Os resultados visuais são semelhantes, mas ao invés de terem sidos distinguidos,
+foram agrupados.
+
+-- Quantidade de registros de cada grupo
+select carga, count(nome) from cursos
+group by carga;
+
+-- Buscar quantos cursos possuo com cada carga horária
+select carga, count(nome) from cursos
+where totaulas = 30
+group by carga;
+
+-- Apenas se o contador for acima de 3
+select carga, count(nome) from cursos
+group by carga
+having count(nome) > 3;  -- Só trabalhamos com o campo que agrupamos
+
+-- Exemplo complexo
+select ano, count(*) from cursos
+where totaulas > 30
+group by ano
+having ano > '2013'
+order by count(*) desc;
+
+-- Selecione a média de hora dos cursos
+select avg(carga) from cursos;
+
+-- Selecionando a carga e total de horas dos cursos onde o ano seja acima de 2015
+-- agrupando por carga, onde só mostra a carga acima da média
+select carga, count(*) from cursos
+where ano > '2015'
+group by carga
+having carga > (select avg(carga) from cursos);
+

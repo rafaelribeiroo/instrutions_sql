@@ -1,8 +1,7 @@
 1. Voltaremos a criar as duas tabelas que foram removidas, para se trabalhar com
 o SELECT:
 CREATE TYPE definicao AS ENUM ('M', 'F');
-CREATE TABLE if not exists pessoas (
-    -- CONSTRAINT: PRIMARY KEY
+CREATE TABLE if not exists gafanhotos (
     id            smallserial PRIMARY KEY,
     nome          varchar(30) NOT NULL,
     profissao     varchar(20),
@@ -25,40 +24,6 @@ create table if not exists cursos (
 );
 
 2. Em seguida, popularemos as tabelas com os dados:
-INSERT INTO cursos
-VALUES (1,'HTML5','Curso de HTML5',40,37,2014),
-(2,'Algoritmos','Lógica de Programação',20,15,2014),
-(3,'Photoshop5','Dicas de Photoshop CC',10,8,2014),
-(4,'PHP','Curso de PHP para iniciantes',40,20,2015),
-(5,'Java','Introdução à Linguagem Java',40,29,2015),
-(6,'MySQL','Bancos de Dados MySQL',30,15,2016),
-(7,'Word','Curso completo de Word',40,30,2016),
-(8,'Python','Curso de Python',40,18,2017),
-(9,'POO','Curso de Programação Orientada a Objetos',60,35,2016),
-(10,'Excel','Curso completo de Excel',40,30,2017),
-(11,'Responsividade','Curso de Responsividade',30,15,2018),
-(12,'C++','Curso de C++ com Orientação a Objetos',40,25,2017),
-(13,'C#','Curso de C#',30,12,2017),
-(14,'Android','Curso de Desenvolvimento de Aplicativos para Android',60,30,2018),
-(15,'JavaScript','Curso de JavaScript',35,18,2017),
-(16,'PowerPoint','Curso completo de PowerPoint',30,12,2018),
-(17,'Swift','Curso de Desenvolvimento de Aplicativos para iOS',60,30,2019),
-(18,'Hardware','Curso de Montagem e Manutenção de PCs',30,12,2017),
-(19,'Redes','Curso de Redes para Iniciantes',40,15,2016),
-(20,'Segurança','Curso de Segurança',15,8,2018),
-(21,'SEO','Curso de Otimização de Sites',30,12,2017),
-(22,'Premiere','Curso de Edição de Vídeos com Premiere',20,10,2017),
-(23,'After Effects','Curso de Efeitos em Vídeos com After Effects',20,10,2018),
-(24,'WordPress','Curso de Criação de Sites com WordPress',60,30,2019),
-(25,'Joomla','Curso de Criação de Sites com Joomla',60,30,2019),
-(26,'Magento','Curso de Criação de Lojas Virtuais com Magento',50,25,2019),
-(27,'Modelagem de Dados','Curso de Modelagem de Dados',30,12,2020),
-(28,'HTML4','Curso Básico de HTML, versão 4.0',20,9,2010),
-(29,'PHP7','Curso de PHP, versão 7.0',40,20,2020),
-(30,'PHP4','Curso de PHP, versão 4.0',30,11,2010);
-
-&&
-
 INSERT INTO gafanhotos
 VALUES (1,'Daniel Morais','Auxiliar Administrat','1984-01-02','M',78.50,1.83,'Brasil'),
 (2,'Talita Nascimento','Farmacêutico','1999-12-30','F',55.20,1.65,'Portugal'),
@@ -121,3 +86,37 @@ VALUES (1,'Daniel Morais','Auxiliar Administrat','1984-01-02','M',78.50,1.83,'Br
 (59,'Philppe Oliveira','Auxiliar Administrat','2000-05-23','M',105.10,2.19,'Brasil'),
 (60,'Dayana Dias','Professor','1993-05-30','F',88.30,1.66,'Angola'),
 (61,'Silvana Albuquerque','Programador','1999-05-22','F',56.00,1.50,'Brasil');
+
+&&
+
+INSERT INTO cursos
+VALUES (1,'HTML5','Curso de HTML5',40,37,2014),
+(2,'Algoritmos','Lógica de Programação',20,15,2014),
+(3,'Photoshop5','Dicas de Photoshop CC',10,8,2014),
+(4,'PHP','Curso de PHP para iniciantes',40,20,2015),
+(5,'Java','Introdução à Linguagem Java',40,29,2015),
+(6,'MySQL','Bancos de Dados MySQL',30,15,2016),
+(7,'Word','Curso completo de Word',40,30,2016),
+(8,'Python','Curso de Python',40,18,2017),
+(9,'POO','Curso de Programação Orientada a Objetos',60,35,2016),
+(10,'Excel','Curso completo de Excel',40,30,2017),
+(11,'Responsividade','Curso de Responsividade',30,15,2018),
+(12,'C++','Curso de C++ com Orientação a Objetos',40,25,2017),
+(13,'C#','Curso de C#',30,12,2017),
+(14,'Android','Curso de Desenvolvimento de Aplicativos para Android',60,30,2018),
+(15,'JavaScript','Curso de JavaScript',35,18,2017),
+(16,'PowerPoint','Curso completo de PowerPoint',30,12,2018),
+(17,'Swift','Curso de Desenvolvimento de Aplicativos para iOS',60,30,2019),
+(18,'Hardware','Curso de Montagem e Manutenção de PCs',30,12,2017),
+(19,'Redes','Curso de Redes para Iniciantes',40,15,2016),
+(20,'Segurança','Curso de Segurança',15,8,2018),
+(21,'SEO','Curso de Otimização de Sites',30,12,2017),
+(22,'Premiere','Curso de Edição de Vídeos com Premiere',20,10,2017),
+(23,'After Effects','Curso de Efeitos em Vídeos com After Effects',20,10,2018),
+(24,'WordPress','Curso de Criação de Sites com WordPress',60,30,2019),
+(25,'Joomla','Curso de Criação de Sites com Joomla',60,30,2019),
+(26,'Magento','Curso de Criação de Lojas Virtuais com Magento',50,25,2019),
+(27,'Modelagem de Dados','Curso de Modelagem de Dados',30,12,2020),
+(28,'HTML4','Curso Básico de HTML, versão 4.0',20,9,2010),
+(29,'PHP7','Curso de PHP, versão 7.0',40,20,2020),
+(30,'PHP4','Curso de PHP, versão 4.0',30,11,2010);
