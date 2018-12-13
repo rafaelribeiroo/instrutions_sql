@@ -1,0 +1,10 @@
+Memorando: No PostgreSQL temos apenas uma ENGINE para lidar com os DB's,
+nomeada: "MVCC", e é utilizada apenas para cuidar da consistência de
+dados quando múltiplos processos estão acessando a mesma tabela.
+Enquanto isso, o MySQL usa 9 storage engines, inclusive uma para ser
+compatível com chave estrangeira, o que não precisamos incluir no
+PostgreSQL.
+
+Para continuarmos, é necessário voltar a relembrar das Classificações de
+Comando, mais especificamente das Transações. Visualizar arquivo: "2.
+História..."

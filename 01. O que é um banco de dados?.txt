@@ -56,7 +56,7 @@ Mas os modelos HIERÁRQUICOS e EM REDE não são utilizados hoje em dia, por mai
 que foram melhorando com o decorrer do tempo, eles não facilitavam uma coisa
 simples. RELACIONAMENTO.
 
-Foi então que na década de 70, um pesquisador da IBM (Edgas Codd) propôs um
+Foi então que na década de 70, um pesquisador da IBM (Edgar Codd) propôs um
 novo modelo. Nesse novo paradigma os dados teriam ligações mais intrínsecas,
 eles teriam relações. Foi daí que surgiu o modelo relacional, tal qual 
 utilizado até hoje. Permite coisas do tipo:

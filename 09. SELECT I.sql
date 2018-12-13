@@ -1,5 +1,5 @@
-1. Voltaremos a criar as duas tabelas que foram removidas, para se trabalhar com
-o SELECT:
+-- 1. Voltaremos a criar as duas tabelas que foram removidas, para se trabalhar com
+-- o SELECT:
 CREATE TYPE definicao AS ENUM ('M', 'F');
 CREATE TABLE if not exists gafanhotos (
     id            smallserial PRIMARY KEY,
@@ -12,9 +12,10 @@ CREATE TABLE if not exists gafanhotos (
     nacionalidade varchar(20) DEFAULT 'Brasil'
 );
 
-&&
+-- &&
 
 create table if not exists cursos (
+    -- Pode ser atributo semelhante ao GAFANHOTOS também: apenas id.
     idcurso   int4 primary key,
     nome      character varying(30) not null unique,
     descricao text,
@@ -23,7 +24,7 @@ create table if not exists cursos (
     ano       character varying(4) default '2018'
 );
 
-2. Em seguida, popularemos as tabelas com os dados:
+-- 2. Em seguida, popularemos as tabelas com os dados:
 INSERT INTO gafanhotos
 VALUES (1,'Daniel Morais','Auxiliar Administrat','1984-01-02','M',78.50,1.83,'Brasil'),
 (2,'Talita Nascimento','Farmacêutico','1999-12-30','F',55.20,1.65,'Portugal'),
@@ -87,7 +88,7 @@ VALUES (1,'Daniel Morais','Auxiliar Administrat','1984-01-02','M',78.50,1.83,'Br
 (60,'Dayana Dias','Professor','1993-05-30','F',88.30,1.66,'Angola'),
 (61,'Silvana Albuquerque','Programador','1999-05-22','F',56.00,1.50,'Brasil');
 
-&&
+-- &&
 
 INSERT INTO cursos
 VALUES (1,'HTML5','Curso de HTML5',40,37,2014),
