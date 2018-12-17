@@ -1,10 +1,43 @@
 Memorando: No PostgreSQL temos apenas uma ENGINE para lidar com os DB's,
 nomeada: "MVCC", e é utilizada apenas para cuidar da consistência de
 dados quando múltiplos processos estão acessando a mesma tabela.
-Enquanto isso, o MySQL usa 9 storage engines, inclusive uma para ser
-compatível com chave estrangeira, o que não precisamos incluir no
-PostgreSQL.
+Enquanto isso, o MySQL usa 9 storage engines, inclusive uma
+para ser compatível com chave estrangeira, o que não
+precisamos incluir no PostgreSQL.
 
 Para continuarmos, é necessário voltar a relembrar das Classificações de
 Comando, mais especificamente das Transações. Visualizar arquivo: "2.
 História..."
+
+Vamos à prática agora:
+
+    \c cursoemvideo
+
+    1. No 1º exemplo, vamos utilizar as entidades: "Gafanhoto" e "Curso", com o
+    relacionamento <PREFERE>. A CARDINALIDADE é de um-para-muitos (Visualizar
+    arquivo 13 para regra de CARDINALIDADE um-para-muitos).
+
+    ALTER TABLE IF EXISTS gafanhotos
+    -- Não importa o nome, apenas tipo primitivo e tamanho congruentes.
+    ADD COLUMN IF NOT EXISTS cursopreferido int4;
+
+    ALTER TABLE gafanhotos
+    ADD CONSTRAINT chave_estrangeira FOREIGN KEY (cursopreferido)
+    REFERENCES cursos (id);
+
+    UPDATE gafanhotos
+    -- O meu aluno Daniel vai gostar do MySQL
+    set cursopreferido = 6 where id = 1
+
+    < Integridade Referencial
+
+        DELETE FROM cursos WHERE idcurso = 6;
+        -- Ele não irá deletar porque está assimilado a um OBJETO/INSTÂNCIA
+        -- existente. Pra isso serve a FK.
+
+    -- Para buscarmos os dados da FK:
+    SELECT gafanhotos.nome, gafanhotos.cursopreferido, cursos.nome, cursos.ano
+    from gafanhotos join cursos
+    on cursos.idcursos = gafanhotos.cursopreferido;
+    -- Nesse SELECT, ele seleciona todos os cursos PREFERIDOS pelo usuário 1,
+    depois do 2... e assim sucessivamente.
