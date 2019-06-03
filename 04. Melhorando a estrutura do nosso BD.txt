@@ -1,103 +1,67 @@
-Memorando: Ao trabalharmos com tipos primitivos, sempre escolha o que ocupa
-menos espaço (Ex: Smallint ocupa 2 bytes, Bigint 8). "Ah, mas a diferença é
-pouca", lembrando que é para cada registro, imaginemos que temos 1 bilhão.
+Priori: Ao trabalharmos com tipos primitivos, sempre escolha o que ocupa
+menos espaço.
+    Ex: Smallint (2 bytes), Bigint (8)
+    "Ah, mas a diferença é pouca..."
+    Lembrando que é para cada registro, imagina que temos 1bi.
 
-Memorando: A cada comando no PostgreSQL, lembre-se do ;
-Caso contrário, ele entende que você quer continuar a instrução.
+Para melhorar o que já criamos no arquivo anterior "03. DDL", precisamos remover
+o existente e recriá-lo melhor.
 
-Para melhorar o que já criamos no arquivo anterior, precisamos remover o
-existente e recriá-lo de uma forma melhor.
+1. Drop DB
+DROP DATABASE <db_name>;
 
-# Acessando nosso console
-$ sudo -u postgres psql
+2. O Postgres seta todas as configurações abaixo por padrão, diferente do MySQL.
+CREATE DATABASE <nome_banco>;
+    -- with owner postgres
+    -- encoding utf8
+    -- lc_collate = pt_BR.UTF-8
+    -- lc_ctype = pt_BR.UTF-8;
 
-1. Deletar um BD
-postgres=# drop database <nome_banco>;
+3. Access DB
+\c <nome_banco>
 
-2. Recriando nosso BD, quando informamos createDB o PostgreSQL implementa
-todas as linhas abaixo, o que torna bem mais prático (diferente do MySQL)
-postgres=# create database <nome_banco>;
-           -- Para testar as linhas abaixo, não colocar o ; acima
-           -- with owner postgres
-           -- encoding utf8
-           -- lc_collate = pt_BR.UTF-8
-           -- lc_ctype = pt_BR.UTF-8;
+DICA: Nunca peça a idade do usuário. Caso contrário, teremos que ficar alterando
+de ano em ano, então manipulamos esses dados através da programação com o nascto
 
-postgres=# \c <nome_banco>
-# E para voltar
-<nome_banco>=# \c postgres postgres
+Memorando: CONSTRAINT's são regras que definiremos para criação de coisas dentro
+do nosso BD (NOT NULL/DEFAULT).
 
-3. Relembrando dos tipos primitivos do arquivo passado, como o BD já é
-UTF-8, não precisamos informar o ENCODING das tabelas (a menos que
-queiramos), diferente do MySQL.
-<banco>=# CREATE TABLE <nome_tabela> (
-    -- <nome_coluna> <tipo_primário>(limite_entrada_dados),
-    nome          varchar(30),
-    idade         integer(3),
-    sexo          char(1),
-    peso          decimal,
-    altura        float,
-    nacionalidade varchar(20)
-);
-
-Porque removemos idade? Porque não se insere uma coluna de idade. Caso
-contrário, teremos que ficar alterando de ano em ano, então
-manipulamos esses dados através da programação com o dado
-nascimento.
-
-Antes de passar para o próximo step, um memorando.
-Memorando: CONSTRAINT's são regras que definiremos para criação de coisas
-dentro do nosso BD.
-    Ex: NOT NULL; DEFAULT
-
-4. Recriação
-# definicao só aceitará 2 tipos de strings, M ou F em maiúsculo
-<banco>=# CREATE TYPE definicao AS ENUM ('M', 'F');
-<banco>=# CREATE TABLE pessoas (
-    nome          varchar(30) NOT NULL,
-    nascimento    date,
-    sexo          definicao default 'M',
-    -- 5 é pra definição de espaços
-    -- 2 são quantos números após a casa
-    -- Ex: 102.50
-    peso          decimal(5, 2),
-    altura        decimal(3, 2),
+4. Criação da tabela
+CREATE TYPE definicao AS ENUM ('M', 'F');
+CREATE TABLE pessoas (
+    nome varchar(30) NOT NULL,
+    nascimento date,
+    sexo definicao default 'M',
+    peso decimal(5, 2),  -- 5 serve para definir espaços, 2 números após a casa
+    altura decimal(3, 2),
     nacionalidade varchar(20) DEFAULT 'Brasil'
 );
 
-Pera Rafael, me explique uma coisa. Qual a diferença entre VAR e VarChar?
-No Postgre, se você definir que um atributo com tipo primitivo usará 100
-caracteres, ele ocupará todos (mesmo que você tenha inserido apenas 10),
-já o VarChar usará apenas o que você digitou, anulando o restante (90).
+Mas qual a diferença entre VAR e VarChar?
+Se você definir que um atributo com tipo primitivo usará 100 caracteres, ele
+ocupará todos, já o VarChar usará apenas o que você digitou.
 
-> Pronto, criamos a tabela tudo OK, correto? Ainda não! Pois eu posso
-me auto-cadastrar inúmeras vezes, pensando nisso todos os BD relacionais
-possuem uma tratativa, o que chamamos de CHAVE PRIMÁRIA, todas as tabelas
-devem ter, já que chaves primárias são únicas. Legal, meu nome pode ter
-chave primária? Não! Já que podem ter várias pessoas com o mesmo nome
-(homônimo), agora CPF/ID é único para cada indivíduo, pois então...
+> Criamos a tabela mas temos um grande problema, posso me
+auto-cadastrar inúmeras vezes.
+Pensando nisso, todos os BD relacionais possuem uma tratativa. CHAVE PRIMÁRIA!
+Todas as tabelas devem ter, já que chaves primárias são únicas.
+> Meu nome pode ter chave primária?
+Não! Já que podem ter várias pessoas com o mesmo nome (homônimo), agora CPF/ID é
+único para cada indivíduo, pois então...
 
 5. Recriação com chave primária
-<banco>=# CREATE TYPE definicao AS ENUM ('M', 'F');
-<banco>=# CREATE TABLE pessoas (
-    -- Na maioria das linguagens, você precisa adicionar uma CONSTRAINT
-    -- nomeada: 'AUTO INCREMENT', mas o Postgre já possui um tipo
-    -- primitivo que vêm com essa constraint já aplicada.
-    id            smallserial PRIMARY KEY,
+DROP TABLE pessoas;
+CREATE TYPE definicao AS ENUM ('M', 'F');
+CREATE TABLE pessoas (
+    -- O Postgre já possui um tipo primitivo que vêm com a constraint:
+    -- "AUTO-INCREMENT" já aplicada (SERIAL).
+    id smallserial PRIMARY KEY,
     -- Será através do ID que identificaremos os registros na nossa
     -- tabela, então inserimos a CONSTRAINT primary key
-    nome          varchar(30) NOT NULL,
-    nascimento    date,
-    sexo          definicao default 'M',
-    peso          decimal(5, 2),
-    altura        decimal(3, 2),
-    nacionalidade varchar(20) DEFAULT 'Brasil'
-);
-
-OBS: É possível que você veja alguns exemplos com crase no nome dos atributos,
-utilizamos quando queremos incluir acentos em nossos atributos, funciona
-normal.
-Ex: CREATE TABLE `pessoas` (
-    `nome`          varchar(30) NOT NULL,
-    ...
+    nome varchar(30) NOT NULL,
+    nascimento date,
+    sexo definicao default 'M',
+    peso decimal(5, 2),
+    altura decimal(3, 2),
+    `nacionalidade` varchar(20) DEFAULT 'Brasil'
 );

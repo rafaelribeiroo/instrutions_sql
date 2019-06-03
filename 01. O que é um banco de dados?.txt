@@ -1,84 +1,83 @@
-Memorando: Como cada fabricante quis produzir sua própria SQL, a despadronização
-foi grande, até que chegaram os órgãos ISO e ANSI e obrigaram-os a padronizar,
-então hoje, se você aprender apenas uma linguagem de exploração, servirá para
-todas. Não entendeu o memorando? Leia abaixo que explicarei tudo.
+Piori: Como cada fabricante quis produzir sua própria SQL, a despadronização foi
+grande, até que chegaram os órgãos: "ISO" e "ANSI" obrigando-os a padronizar.
+Atualmente, se você aprender apenas uma linguagem de exploração, valerá para
+todas.
+	Não entendeu a priori? Leia abaixo que explicarei tudo!
 
-História: Na década de L (50) os primeiros PC's foram acadêmicos e militares.
-Mas, nessa época, como os dados eram guardados? Em PAPÉIS! Você preenchia
-essa "ficha" e guardada dentro de uma pasta, e essa pasta era armazenada
-dentro de um arquivo metálico.
-	Veja o arquivo: "1. O que é um banco de dados?" para melhor compreensão
+História: Na década de L (50), os primeiros PC's foram acadêmicos e militares.
+"Mas, nessa época, como os dados eram guardados?" Em PAPÉIS! Você preenchia
+essa "ficha" e guardava dentro de uma pasta, que era armazenada dentro de
+um arquivo metálico.
 
-Esses 3 componentes citados acima:
-	> Fichas (REGISTROS);
-	> Pastas (TABELA) e;
-	> Arquivo metálico (ARQUIVOS).
+Esses 3 componentes citados acima correspondem a:
+	→ Fichas (REGISTROS);
+	→ Pastas (TABELA) e;
+	→ Arquivo metálico (ARQUIVOS).
 		> Tem nomes específicos na área da computação.
-		> Que por sua vez estão descritos dentre os ()
 	< Arquivos guardam tabelas;
 	< Tabelas armazenam registros.
 
-O modus operandi descrito estava suprindo a necessidade de todos, até que surgiu
-um grave problema, os armários ficavam super lotados. Foi aí que apareceu uma
-solução, DIGITALIZAR todas essas fichas.
+O 'modus operandi' descrito estava suprindo a necessidade de todos, até que
+surgiu um grave problema... Os armários ficavam super lotados; foi aí que
+apareceu uma solução, DIGITALIZAR todas essas fichas.
 
 No começo, os mecanismos de armazenamento eram os seguintes (NOMENCLATURAS):
-> ARQUIVOS de acesso SEQUENCIAL (fita), são aqueles onde os registros são
-acessados sequencialmente. O que é muito arcaico/antigo (rebobinar), mas
-era melhor do que os papéis.
+→ ARQUIVOS de acesso SEQUENCIAL (Fitas): São aqueles onde os registros são
+acessados sequencialmente. O que é muito arcaico/antigo (tinham que ficar
+rebobinando para retroceder alguns registros). Entretando, era melhor
+do que os papéis ¯¯\_(ツ)_/¯¯.
 
 Logo depois, vieram os:
-> ARQUIVOS de acesso DIRETO são aqueles onde os registros são armazenados e
-processados de maneira direta, através de índices. Melhor que o anterior
-(pois não precisa rebobinar).
+→ ARQUIVOS de acesso DIRETO: São aqueles onde os registros são armazenados e
+processados de maneira direta, através de índices, o que o torna melhor que
+o anterior (pois dispensa rebobinação).
 
 Na década de LX (60), o Departamento de Defesa DOS EUA começou a agir para
-armazenar dados de forma rápida e segura (Já que a pesquisa militar era
-muito importante). Daí surgiu o nome BANCO de DADOS.
+armazenar dados de forma rápida e segura (já que a pesquisa militar era
+muito importante).
+	> Daí surgiu o nome BANCO de DADOS.
 
-Um BD é composto de 4 princípios:
-	> Base de Dados: Dados propriamente ditos;
-	> Sistema Gerenciador: SGBD (inglês: DMS), dentro de todo o ecosistema que
-	constrói o banco de dados, precisamos ter um sistema que gerencia esses
-	dados.
-	> Linguagem de exploração: Linguagem de acesso aos dados, aprendendo uma
-	vez é igual pra todos, diferentes de uma linguagem de programação;
-	> Programas adicionais: Gerência de usuários, otimizadores de dados.
+Um DB é composto de 4 princípios:
+	→ Base de Dados: Dados propriamente ditos;
+	→ Sistema Gerenciador (SGBD ou DMS): Dentro de todo o ecossistema que
+	constrói o banco de dados, precisamos ter um sistema que gerencia
+	esses dados.
+	→ Linguagem de exploração: Acesso aos dados, aprendendo uma
+	vez é igual pra todos; diferindo de uma linguagem de programação;
+	→ Programas adicionais: Gerência de usuários, otimizadores de dados etc.
 
-Além do Departamento... a IBM foi muito valiosa também para construção dos BD,
+Além do Departamento... a IBM foi muito valiosa também para construção do DB,
 seu primeiro paradigma foi a criação de dados HIERÁRQUICOS (basicamente, iam
-ser criados a partir de uma hierarquia/dados interligados). 
-Logo após, propôs um melhor. Ao invés de modelo HIERÁRQUICO, seriam EM REDE,
-o que não teria qual dado é superior e qual é inferior, mas como uma rede
+ser criados a partir de uma hierarquia/dados interligados).
+Logo após, propôs um melhor. Ao invés de modelo HIERÁRQUICO, seriam EM REDE –
+que não teria qual dado é superior e qual é inferior, mas como uma rede
 inteligente.
-
-Mas os modelos HIERÁRQUICOS e EM REDE não são utilizados hoje em dia, por mais
-que foram melhorando com o decorrer do tempo, eles não facilitavam uma coisa
-simples. RELACIONAMENTO.
+	> Mas os modelos HIERÁRQUICOS e EM REDE não são utilizados hoje em dia, por
+	mais que foram melhorando ao decorrer do tempo, eles não facilitavam uma
+	coisa simples. RELACIONAMENTO.
 
 Foi então que na década de 70, um pesquisador da IBM (Edgar Codd) propôs um
-novo modelo. Nesse novo paradigma os dados teriam ligações mais intrínsecas,
-eles teriam relações. Foi daí que surgiu o modelo relacional, tal qual 
-utilizado até hoje. Permite coisas do tipo:
-    Se eu tenho um cadastro de um cliente no BD, eu pego a ficha e guardo no meu 
-    BD (com acesso a todas informações, o que todos os outros entregam, mas ele 
-    dá um passo a mais), com isso eu posso ver onde ele mora e quais as compras 
-    ele fez. A partir das compras posso ter quando ela foi feita e qual a 
-    influência que ela teve no meu estoque, a partir da influência eu posso ter 
-    acesso diretamente ao meu fornecedor
+novo modelo. Nesse novo paradigma, os dados teriam ligações mais intrínsecas –
+eles teriam relações. Foi daí que surgiu o modelo relacional, tal qual
+utilizado até hoje.
+	Permite coisas do tipo:
+    Se eu tenho um cadastro de um cliente no BD, eu pego a ficha e guardo no meu
+    DB (com acesso a todas informações, o que todos os outros entregam, mas ele
+    provê um passo a mais), com isso, eu posso ver onde ele mora e quais as
+	compras ele realizou; a partir das compras posso ter quando ela foi
+	feita e qual a influência que ela teve no meu estoque, a partir da
+	influência eu posso ter acesso diretamente ao meu fornecedor.
 
-Claro que tem o modelo orientado a documentos e o modelo orientado a objetos.
-Que são muito bons, porém cada qual com o seu objetivo e benefício.
+*Claro que tem o modelo orientado a documentos e o modelo orientado a objetos
+que são muito bons. Entretanto, cada qual com o seu objetivo e benefício.*
 
-Voltando a linguagem de exploração, ela já teve alguns nomes (Structured English
-Query Language), que se tornou Sequel e depois, SQL.
-    > SQL é uma linguagem de consulta, dou instruções ao ambiente e ele me retornará
-    uma query, uma resposta à uma solicitação
+Voltando a linguagem de exploração, ela já teve alguns nomes: "Structured
+English Query Language", "Sequel", e por fim: "SQL"
+    > SQL é uma linguagem de consulta, dou instruções ao ambiente e ele me
+	retorna uma query, uma resposta a minha solicitação.
     > Ela seria universal, até que...
 
-Cada fabricante resolveu criar sua própria SQL e com isso surgiu vários bancos de dados,
+Cada fabricante resolveu criar sua própria SQL e com isso surgiu vários DB,
 que foram PADRONIZADOS com base na ISO e ANSI.
     Pagos: Oracle, IBM, dBase, Microsoft SQL Server;
-    Gratuitos: PostgreSQL, MySQL, MariaDB, FireBIRD
-
-MariaDB é FORK do MySQL.
+    Gratuitos: PostgreSQL, MySQL, MariaDB (Fork do MySQL), FireBIRD.

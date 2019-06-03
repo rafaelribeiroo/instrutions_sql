@@ -1,0 +1,20 @@
+< As instruções (Classificações dos comandos) se caracterizam pelos tipos:
+
+	→ DDL (Linguagem de DEFINIÇÃO): Criar/deletar tabela/banco;
+        <Define a estrutura>
+	→ DML (MANIPULAÇÃO): Registrar/Apagar/Manipular DADOS;
+	→ DQL (SOLICITAÇÕES): SELECT;
+	→ DCL (CONTROLE): Definição de quais usuários poderão acessar meu banco.
+    Tipo do acesso, tipos de comando que eles poderão executar.
+	→ DTL (TRANSAÇÕES): Qualquer solicitação que pode ser feita a um banco de
+	dados, com ele te atendendo seguindo a: "DICA" abaixo.
+		< 4 características de uma boa transação:
+			> Durabilidade: Todo o dado que é inserido/manipulado tem que
+            permanecer durável (até o momento que eu remover);
+			> Isolamento: Se eu tenho 2 transações sendo executadas ao mesmo
+			momento, uma não pode interferir com a outra;
+			> Consistência: Toda transação tem que levar o DB de um estado
+			consistente a outro consistente.
+			> Atomicidade: Toda transação têm que ser atômica, ou toda ela
+			acontece ou nada acontece (ou tudo dá certo ou (caso erro),
+            volte ao estado anterior consistente).

@@ -1,71 +1,45 @@
-Memorando: Decore apenas o nome do meio (DDL) - Definition/Database
-										(DML) - Manipulation/Dados
+Memorando: Decore apenas o nome do meio.
+    DDL → Definition (DB)
+    DML → Manipulation (DATA)
 
+Agora que já criamos o banco/tabela, é hora de incrementar com registros.
+Construímos uma narrativa que consistia na família de Godofredo, agora chegou a
+hora de inserirmos eles em nosso DB.
 
-Agora que já criamos o banco/tabela, é hora de incrementar com registros, e
-para fazer isso, precisamos conhecer um pouco mais sobre o: 'INSERT INTO (
-Inserir dentro)'; Alimentar nossa base de dados.
-
-Construímos uma narrativa ao longo desse aprendizado que consistia na família
-de Godofredo, e agora chegou a hora de inserirmos eles em nosso banco de
-dados.
-
-> Relembrando a última instrução da aula passada:
-<banco>=# CREATE TABLE pessoas (
-    id            smallserial PRIMARY KEY
-    nome          varchar(30) NOT NULL,
-    nascimento    date,
-    sexo          definicao default 'M',
-    peso          decimal(5, 2),
-    altura        decimal(3, 2),
-    nacionalidade varchar(20) DEFAULT 'Brasil'
-);
-
-.. Até o momento, vimos apenas os comandos DDL. Agora, partimos para os DML ..
-
-Para facilitar o aprendizado, coloque todas as características das pessoas
+1. Para facilitar o aprendizado, coloque todas as características das pessoas
 dentro de parênteses.
 (id, nome, nascimento, sexo, peso, altura, nacionalidade)
 
-E por fim, os valores a serem atribuídos.
+2. E por fim, os valores a serem atribuídos.
 (1, 'Godofredo', '1984-01-02', 'M', 78.5, 1.83, 'Brasil');
 
-Agora, vamos unir ambas as linhas:
-	INSERT INTO pessoas
-	-- Insira na tabela pessoas, nos campos...
-	(id, nome, nascimento, sexo, peso, altura, nacionalidade)
-	VALUES
-	-- ...os valores
-	(1, 'Godofredo', '1984-01-02', 'M', 78.5, 1.83, 'Brasil');
-
-Mas, como o ID é auto-incrementável, podemos retirá-lo.
-INSERT INTO pessoas
--- Insira na tabela pessoas, nos campos...
+3. Merge:
+INSERT INTO pessoas  -- nos campos...
 (nome, nascimento, sexo, peso, altura, nacionalidade)
 VALUES
--- ...os valores
 ('Godofredo', '1984-01-02', 'M', 78.5, 1.83, 'Brasil');
 
-Quer verificar se realmente cadastrou?
-SELECT * from pessoas;
--- Calma que aprenderemos mais sobre esse comando futuramente
+4. Cadastrei?
+SELECT *
+FROM pessoas;  -- Aprenderemos mais sobre esse comando depois
 
-OBS: Se a ordem estiver da mesma forma como foi incluído na tabela do BD,
-podemos fazer a inserção sem descrever os campos, como abaixo:
+OBS: Caso a ordem de inserção for exatamente igual a ordem das colunas na
+tabela, não precisamos especificar os campos:
 INSERT INTO pessoas
-VALUES (DEFAULT, 'Rafael', '1994-07-27', 'M', 85.5, 1.80, 'Irlanda');
-	< Mas porque devemos inserir DEFAULT em um campo autoincrementável?
-	> Porque sem especificar os atributos, o BD não sabe aonde estamos
-	querendo inserir, e podemos cadastrar um ID manualmente também.
+VALUES
+(DEFAULT, 'Rafael', '1994-07-27', 'M', 85.5, 1.80, 'Irlanda');
+	< Mas pq devemos inserir DEFAULT em um campo auto-incrementável?
+	> Para suplantar a coluna ID sem ter que especificar as colunas
+    propriamente ditas.
 
-Temos outra solução para incluir registros também, ao invés de usar o mesmo
-comando toda hora, podemos fazer simplesmente:
-
+5. Inserindo vários registros.
 INSERT INTO pessoas
 (nome, nascimento, sexo, peso, altura, nacionalidade)
 VALUES
-('Richelly', '1990-03-03', 'F', 65.2, 1.63, 'Brasil'),
-('Francielly', '1989-07-12', 'F', 98.5, 1.65, 'Brasil'),
-('Gabriel', '1987-11-06', 'M', 97.7, 1.92, 'Brasil');
-
-<banco>=#\! clear
+('Godofredo', '1984-01-02', 'M', 78.50, 1.83, 'Brasil'),
+('Maria', '1999-12-30', 'F', 55.20, 1.65, 'Portugal'),
+('Creuza', '1920-12-30', 'F', 50.20, 1.65, 'Brasil'),
+('Adalgiza', '1930-11-02', 'F', 63.20, 1.75, 'Irlanda'),
+('Cláudio', '1975-04-22', 'M', 99.00, 2.15, 'Brasil'),
+('Pedro', '1999-12-03', 'M', 87.00, 2.00, 'Brasil'),
+('Janaína', '1987-11-12', 'F', 75.40, 1.66, 'EUA');
