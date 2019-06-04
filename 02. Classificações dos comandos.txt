@@ -1,3 +1,6 @@
+Priori: Ao trabalhar com o Postgres pelo console, verifique que o início está
+com um símbolo de = e não -
+
 < As instruções (Classificações dos comandos) se caracterizam pelos tipos:
 
 	→ DDL (Linguagem de DEFINIÇÃO): Criar/deletar tabela/banco;

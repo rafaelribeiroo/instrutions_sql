@@ -1,0 +1,47 @@
+Priori:
+    AND → Apenas se as duas condições forem satisfeitas;
+		OR → Se qualquer uma estiver OK, estou OK.
+
+1. Ordena forma ascendente
+SELECT * FROM cursos
+ORDER BY nome;
+-- Descendente: ORDER BY nome DESC
+
+2. Filtrando atributos
+SELECT nome, carga, ano FROM cursos;
+
+3. Ascendente pelo ano/When same year, nome ascendente
+SELECT nome, carga, ano FROM cursos
+ORDER BY ano, nome;
+
+4. Cláusula: WHERE com condições
+SELECT * FROM cursos
+WHERE ano <= 2015
+ORDER BY nome;
+
+Operadores Relacionais
+    < Menor
+    > Maior
+    <= Menor/igual
+    >= Maior/igual
+    <> Diferente !=
+
+5. Entre condições
+SELECT nome, ano FROM cursos
+WHERE ano BETWEEN 2014 AND 2016;
+
+6. Entre os anos de 2014/2016, com ano descendente e nome ascendente
+SELECT nome, ano FROM cursos
+WHERE ano BETWEEN 2014 AND 2016
+ORDER BY ano desc, nome asc;
+
+7. Ao invés do BETWEEN que pega o intervalo entre os dois parâmetros, esse foca
+apenas no que foi especificado
+SELECT nome, descricao, ano FROM cursos
+WHERE ano IN (2014, 2016)
+ORDER BY ano;
+
+8. Entre duas condições
+SELECT * FROM cursos
+WHERE carga > 35 AND totaulas < 30;
+-- WHERE carga > 35 OR totaulas < 30;

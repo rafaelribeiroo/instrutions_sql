@@ -1,0 +1,66 @@
+Priori: Essa aula é para distinguir
+Próximo arquivo: 'Agrupar'
+
+1. Selecionar dados que pareçam com: "P...", ILIKE não tem diferenciação de aA
+SELECT * FROM cursos
+WHERE nome ILIKE 'P%';
+
+What means %?
+> Caractere CORINGA, que serve para descrever nenhum ou vários caracteres
+
+2. Retorna nomes que finalizam em: 'A'
+SELECT * FROM cursos
+WHERE nome ILIKE '%A';
+
+3. Qualquer coisa na frente/atrás, inclusive nada
+SELECT * FROM cursos
+WHERE nome ILIKE '%A%';
+
+4. Todos os nomes sem a letra: 'A'
+SELECT * FROM cursos
+WHERE nome NOT ILIKE '%A%';
+
+5. Trás Photoshop e PHP
+SELECT * FROM cursos
+WHERE nome ILIKE 'ph%p';
+
+6. Outro metacaractere
+SELECT * FROM cursos
+WHERE nome ILIKE 'ph%p_';
+    _ (Wildcard): Deve haver algum caractere, nada não conta
+
+7. Tem: 'P', obrigatoriamente duas coisas, um: 'T' após e qualquer outra coisa
+SELECT * FROM cursos
+WHERE nome ILIKE 'p__t%';
+
+8. Já que tem várias ocorrências, busque apenas uma
+SELECT DISTINCT nacionalidade
+FROM gafanhotos
+ORDER BY nacionalidade;
+
+Funções de AGREGAÇÃO: Selecionar/Totalizar
+
+1. QNTDE de registros específicos
+SELECT COUNT(*) FROM cursos
+WHERE carga > 40;
+
+2. Dentre todos os cursos, a maior carga
+SELECT MAX(carga) as maior_carga
+FROM cursos;
+
+3. Nos cursos de 2016, o máximo de aulas que dei em um curso
+SELECT MAX(totaulas) FROM cursos
+WHERE ano = '2016';
+
+4. Pelos cursos ministrados em 2016, qual foi a mínima totalidade de aulas que
+dei em um curso, printando meu nome
+SELECT MIN(nome), MIN(totaulas) FROM cursos
+WHERE ano = '2016';
+
+5. Somatório de todas aulas que ministrei em 2016
+SELECT sum(totaulas) FROM cursos
+where ano = '2016';
+
+6. Tirar a média (average)
+SELECT AVG(totaulas) FROM cursos
+WHERE ano = '2016';

@@ -1,32 +1,33 @@
-Memorando: O Backup do nosso BD é chamado de DUMP.
+Priori: O BACKUP do nosso BD é chamado de DUMP.
 
-1. Vá até o PGAdmin4, autentique e clique com o botão direito no BD
-Backup...
+1. Vá até o PGAdmin4, autentique e clique com o botão direito no DB > Backup
 
-2. Descreva um nome de arquivo no Filename
+2. Nomeie o filename
 
-3. Escolha o formato Custom
+3. Formato: CUSTOM
 
-4. Encoding em UTF-8
+4. Encoding: UTF-8
 
-5. Role name Postgres
+5. Role name: Postgres
 
 > Backup;
 
-Agora vá até o Query Tool... (Right click again)
-drop table cursos
-select * from cursos -- Nada
-drop table gafanhotos
-select * from gafanhotos -- Nada
+Voltando Backup
 
-1. Right Click > Restore...
+1. Query Tool (botão direito)
+DROP TABLE cursos;
+DROP TABLE gafanhotos;
+SELECT * FROM cursos;
+SELECT * FROM gafanhotos;
 
-2. Formato Custom
+2. Botão direito > Restore...
 
-3. Selecione seu arquivo no seu desktop
+3. Formato Custom
 
-4. Role name Postgres
+4. Selecione o arquivo de dump
 
-Após realizado, volte ao Query Tool e...
-select * from cursos
-select * from gafanhotos
+5. Role name: Postgres
+
+6. Query Tool
+SELECT * FROM cursos;
+SELECT * FROM gafanhotos;

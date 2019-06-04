@@ -1,0 +1,20 @@
+Alguns tipos primitivos:
+
+> Númericos:
+    Inteiro: Smallint, Int4, Int, Bigint, Serial (Autoincrement);
+    Real: Real, Double, Float8, Decimal;
+    Lógico: Boolean.
+
+> Data/Tempo:
+    Date: Data (Sem horário);
+    Time: Horário (Sem fuso horário)
+    Timetz: Horário (Com fuso horário)
+    Timestamp: Data e horário (Sem //)
+    Timestamptz: Data e horário (Com //)
+Mas a nível de BD, o que é fuso horário?
+< Quando você altera o fuso horário do seu servidor de banco (US to
+BR), o valor armazenado no seu campo (atributo) não altera
+automaticamente.
+
+Verificar restante abaixo:
+> https://www.postgresql.org/docs/9.5/datatype.html

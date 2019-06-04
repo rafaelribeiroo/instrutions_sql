@@ -1,6 +1,6 @@
 -- Canalizando as práticas do arquivo: 04. Melhorando...
 
-\c curso_em_video;
+\connect curso_em_video;
 
 DROP TABLE pessoas;
 
@@ -12,5 +12,5 @@ CREATE TABLE pessoas (
     sexo definicao default 'M',
     peso decimal(5, 2),
     altura decimal(3, 2),
-    `nacionalidade` varchar(20) DEFAULT 'Brasil'
+    nacionalidade varchar(20) DEFAULT 'Brasil'
 );

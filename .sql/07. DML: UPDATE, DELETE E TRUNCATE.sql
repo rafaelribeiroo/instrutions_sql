@@ -1,6 +1,7 @@
-Priori: Linhas são REGISTROS ou TUPLAS. Colunas são meus CAMPOS ou ATRIBUTOS.
+-- Canalizando as práticas do arquivo: 07. Manipulando...
 
-1. Para manipular linhas, precisamos delas.
+\connect curso_em_video;
+
 INSERT INTO cursos
 (idcurso, nome, descricao, carga, totaulas, ano)
 VALUES
@@ -15,28 +16,11 @@ VALUES
 (DEFAULT, 'Cozinha Árabe', 'Aprenda a fazer Kibe', '40', '30', '2018'),
 (DEFAULT, 'Youtuber', 'Gerar polêmica e ganhar inscritos', '5', '2', '2018');
 
-2. Alterando 1ª tupla
-UPDATE cursos
-SET nome = 'HTML5'
-WHERE idcurso = 1;
-
-3. Modificando duas características ao mesmo tempo
-UPDATE cursos
-SET nome = 'PHP', ano = '2015'
-WHERE idcurso = 4;
-
-4. Modificação em várias tuplas
 UPDATE cursos
 SET ano = '2050', carga = '800'
 WHERE ano = '2018' and totaulas = 30;
 
-OBS: Mas use com sabedoria, se aplicar um UPDATE com where genérico vai alterar
-em todos os registros, SEM CTRL + Z.
-
-5. Apagar registros específicos
 DELETE FROM cursos
-WHERE ano='2018';
+WHERE ano = '2018';
 
-6. Apagar LIKE A THANOS
 TRUNCATE cursos;
-TRUNCATE gafanhotos;

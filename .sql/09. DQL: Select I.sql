@@ -1,32 +1,29 @@
--- 1. Voltaremos a criar as duas tabelas que foram removidas, para se trabalhar com
--- o SELECT:
+-- Nesta aula, foram apenas ensinos práticos.
+
 CREATE TYPE definicao AS ENUM ('M', 'F');
-CREATE TABLE if not exists gafanhotos (
-    id            smallserial PRIMARY KEY,
-    nome          varchar(30) NOT NULL,
-    profissao     varchar(20),
-    nascimento    date,
-    sexo          definicao default 'M',
-    peso          decimal(5, 2),
-    altura        decimal(3, 2),
+CREATE TABLE IF NOT EXISTS gafanhotos (
+    id smallserial PRIMARY KEY,
+    nome varchar(30) NOT NULL,
+    profissao varchar(20),
+    nascimento date,
+    sexo definicao default 'M',
+    peso decimal(5, 2),
+    altura decimal(3, 2),
     nacionalidade varchar(20) DEFAULT 'Brasil'
 );
 
--- &&
-
-create table if not exists cursos (
-    -- Pode ser atributo semelhante ao GAFANHOTOS também: apenas id.
-    idcurso   int4 primary key,
-    nome      character varying(30) not null unique,
+CREATE TABLE IF NOT EXISTS cursos (
+    id smallserial primary key,
+    nome character varying(30) not null unique,
     descricao text,
-    carga     int4 check (carga >= 0),
-    totaulas  int4,
-    ano       character varying(4) default '2018'
+    carga int4 check (carga >= 0),
+    totaulas int4,
+    ano character varying(4) default '2018'
 );
 
--- 2. Em seguida, popularemos as tabelas com os dados:
 INSERT INTO gafanhotos
-VALUES (1,'Daniel Morais','Auxiliar Administrat','1984-01-02','M',78.50,1.83,'Brasil'),
+VALUES
+(1,'Daniel Morais','Auxiliar Administrat','1984-01-02','M',78.50,1.83,'Brasil'),
 (2,'Talita Nascimento','Farmacêutico','1999-12-30','F',55.20,1.65,'Portugal'),
 (3,'Emerson Gabriel','Programador','1920-12-30','M',50.20,1.65,'Moçambique'),
 (4,'Lucas Damasceno','Auxiliar Administrat','1930-11-02','M',63.20,1.75,'Irlanda'),
@@ -88,10 +85,9 @@ VALUES (1,'Daniel Morais','Auxiliar Administrat','1984-01-02','M',78.50,1.83,'Br
 (60,'Dayana Dias','Professor','1993-05-30','F',88.30,1.66,'Angola'),
 (61,'Silvana Albuquerque','Programador','1999-05-22','F',56.00,1.50,'Brasil');
 
--- &&
-
 INSERT INTO cursos
-VALUES (1,'HTML5','Curso de HTML5',40,37,2014),
+VALUES
+(1,'HTML5','Curso de HTML5',40,37,2014),
 (2,'Algoritmos','Lógica de Programação',20,15,2014),
 (3,'Photoshop5','Dicas de Photoshop CC',10,8,2014),
 (4,'PHP','Curso de PHP para iniciantes',40,20,2015),

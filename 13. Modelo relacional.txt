@@ -1,24 +1,30 @@
-< A regra para pegar a chave primária de um lado e jogar para o outro depende
-da classificação do relacionamento>
+Priori: A regra para pegar a chave primária de um lado e jogar para o outro
+depende da classificação do relacionamento
 
 → Regras de CARDINALIDADE (Classificação de Relacionamento)
 
-    Ex. Um-para-um: Um marido CASA apenas com uma esposa; Uma esposa casa apenas
-    com um marido. Tem um relacionamento mas cada um tem a sua própria vida;
-        < Nesse caso, precisamos de uma ENTIDADE DOMINANTE (Marido), então
-    pegamos o atributo PK da ENTIDADE NÃO DOMINANTE (Esposa) e jogamos na
-    dominante (que vai como FK, não importa se for o mesmo nome).
+UM-PARA-UM
 
-    Ex. Um-para-muitos: Um funcionário pode CUIDAR de vários dependentes;
-        < Nesse caso, você pega a PK da entidade: "um-para-" e joga no lado:
+    Analogia → Um marido CASA apenas com uma esposa; Uma esposa CASA apenas
+    com um marido.
+    Tem um relacionamento mas cada um tem a sua própria vida.
+
+    < Nesse caso, necessitamos da ENTIDADE DOMINANTE (Marido), então pegamos o
+    PK da ENTIDADE NÃO DOMINANTE (Esposa) e jogamos na dominante (que vai como
+    FK).
+
+UM-PARA-MUITOS
+
+    Analogia → Um funcionário pode CUIDAR de vários dependentes;
+
+    < Nesse caso, você pega a PK da entidade: "um-para-" e joga no lado:
     "muitos" como FK.
 
-    Ex. Muitos-para-muitos: Um cliente compra vários produtos e um produto pode
-    ser comprados por vários clientes.
-        < Nesse caso, o relacionamento do meio em losango (<compra>) vira uma
-    entidade com atributos adicionais, tais como: data, forma-pagto...
-        << A entidade cliente vai de um-para-muitos para a <compra> e o
-        produto, um-para-muitos para a <compra>.
-        <<< PK das duas entidades (Cliente/Produto), para a entidade <COMPRA>
+MUITOS-PARA-MUITOS
 
-Vamos à prática agora no arquivo: "14. Chaves estrangeiras e Join"
+    Analogia → Um cliente COMPRA vários produtos e um produto pode
+    ser COMPRADO por vários clientes.
+
+    < Nesse caso, o comentário do meio em losango (<compra>) vira uma
+    entidade com novos atributos: data/forma-pagto...
+    < A entidade Cliente e a Produto vai de um-para-muitos para a nova entidade
