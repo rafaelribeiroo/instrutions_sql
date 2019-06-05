@@ -17,8 +17,8 @@ ORDER BY nacionalidade;
 SELECT COUNT(*) FROM cursos
 WHERE carga > 40;
 
-SELECT MAX(carga) as maior_carga
-FROM cursos;
+SELECT MAX(totaulas) FROM cursos
+WHERE ano = '2016';
 
 SELECT MIN(nome), MIN(totaulas) FROM cursos
 WHERE ano = '2016';

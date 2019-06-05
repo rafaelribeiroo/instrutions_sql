@@ -1,0 +1,20 @@
+> Configurando PGADMIN 4, utilitário de administração gráfica
+
+GENERAL
+Name: root
+
+CONNECTION
+Hostname: localhost
+Port: 5432
+# Banco de manutenção. Aqui você é livre para informar qualquer banco de dados
+existente, o DB postgres é criado logo quando um cluster é inicializado, esse
+DB é um db padrão para usuários e aplicações conectarem.
+Maintenance: postgres
+Username: postgres
+Password: <senha_correspondente>
+
+> INSERT pela GUI
+
+Servers > Root > Databases > <db_name>
+Schemas > Public > Tables > table_name > Botão Direito > View/Edit data
+All rows > Modifique > Disquete

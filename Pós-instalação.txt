@@ -1,0 +1,23 @@
+1. Adicionando uma senha ao usuário root
+ALTER USER postgres WITH ENCRYPTED PASSWORD 'sua_senha';
+\q  -- To exit
+
+# Por padrão, o PGSQL usa um sistema de autenticação chamado Peer Authentication
+# para conexões locais, isso significa que se o nome do usuário do SO
+# corresponder a um nome de usuário válido no postgres, esse usuário
+# poderá efetuar login sem autenticação adicional.
+2. Criando meu usuário
+CREATE USER <usuario> WITH PASSWORD '<senha>';
+# Concedendo privilégios
+GRANT ALL PRIVILEGES ON DATABASE <db_name> TO <usuario>;
+
+3. Configuraremos alguns parâmetros de conexão para o usuário que acabamos de
+criar, isso acelera as operações de banco de dados, para que os valores
+corretos não precisem ser consultados e definidos sempre que uma
+conexão é estabelecida.
+ALTER ROLE <usuario> SET client_encoding TO 'utf8';
+# Tipo de transação que é executado no banco, definimos abaixo o esquema de
+# isolamento e transação padrão com 'read_committed' que bloqueia as
+# leituras de transações não confirmadas
+ALTER ROLE <usuario> SET default_transaction_isolation TO 'read committed';
+ALTER ROLE <usuario> SET timezone TO 'America/Sao_Paulo';

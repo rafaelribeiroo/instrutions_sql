@@ -6,15 +6,15 @@ SELECT * FROM cursos
 ORDER BY nome;  -- ORDER BY nome DESC
 
 SELECT * FROM cursos
-WHERE ano <= 2015
+WHERE ano <= '2015'
 ORDER BY nome;
 
 SELECT nome, ano FROM cursos
-WHERE ano BETWEEN 2014 AND 2016
+WHERE ano BETWEEN '2014' AND '2016'
 ORDER BY ano DESC, nome ASC;
 
 SELECT nome, descricao, ano FROM cursos
-WHERE ano IN (2014, 2016)
+WHERE ano IN ('2014', '2016')
 ORDER BY ano;
 
 SELECT * FROM cursos

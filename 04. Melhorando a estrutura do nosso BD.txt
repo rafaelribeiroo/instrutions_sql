@@ -12,10 +12,10 @@ DROP DATABASE <db_name>;
 
 2. O Postgres seta todas as configurações abaixo por padrão, diferente do MySQL.
 CREATE DATABASE <nome_banco>;
-    -- with owner postgres
-    -- encoding utf8
-    -- lc_collate = pt_BR.UTF-8
-    -- lc_ctype = pt_BR.UTF-8;
+-- WITH OWNER postgres
+-- ENCODING utf8
+-- LC_COLLATE = pt_BR.UTF-8
+-- LC_CTYPE = pt_BR.UTF-8;
 
 3. Access DB
 \c <nome_banco>
@@ -31,7 +31,7 @@ CREATE TYPE definicao AS ENUM ('M', 'F');
 CREATE TABLE pessoas (
     nome varchar(30) NOT NULL,
     nascimento date,
-    sexo definicao default 'M',
+    sexo definicao DEFAULT 'M',
     peso decimal(5, 2),  -- 5 serve para definir espaços, 2 números após a casa
     altura decimal(3, 2),
     nacionalidade varchar(20) DEFAULT 'Brasil'
@@ -53,15 +53,15 @@ Não! Já que podem ter várias pessoas com o mesmo nome (homônimo), agora CPF/
 DROP TABLE pessoas;
 CREATE TYPE definicao AS ENUM ('M', 'F');
 CREATE TABLE pessoas (
-    -- O Postgre já possui um tipo primitivo que vêm com a constraint:
+    -- O Postgre já possui um tipo primitivo que vêm com a constraint
     -- "AUTO-INCREMENT" já aplicada (SERIAL).
     id smallserial PRIMARY KEY,
     -- Será através do ID que identificaremos os registros na nossa
     -- tabela, então inserimos a CONSTRAINT primary key
     nome varchar(30) NOT NULL,
     nascimento date,
-    sexo definicao default 'M',
+    sexo definicao DEFAULT 'M',
     peso decimal(5, 2),
     altura decimal(3, 2),
-    `nacionalidade` varchar(20) DEFAULT 'Brasil'
+    nacionalidade varchar(20) DEFAULT 'Brasil'
 );

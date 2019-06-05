@@ -1,0 +1,65 @@
+Priori: As constraint's entre * não são obrigatórias.
+
+1. Verificação da nossa tabela pessoas
+\d pessoas;
+
+2. E se quisermos adicionar uma nova coluna em nossa tabela?
+ALTER TABLE pessoas
+ADD *COLUMN* profissao varchar(10);
+
+3. Verificando se foi realmente incluída a nova coluna
+\d pessoas;
+
+As pessoas cadastradas previamente ficarão com profissão nula,
+posteriormente vamos aprender a adicionar aos registros existentes.
+
+4. E para remover alguma coluna?
+ALTER TABLE pessoas
+DROP *COLUMN* profissao;
+
+5. Para adicionar uma coluna em uma posição diferente:
+> No MySQL existem as constraint's: "FIRST" e "AFTER", no Post não
+temos essa opção, por uma razão.
+    Cada consulta deve listar todos os fields independente da ordem,
+    o que torna a ordem, insignificante.
+
+6. Podemos modificar o limite de caracteres da: 'profissão'?
+-- Não só o limite como diversas coisas.
+ALTER TABLE pessoas
+ALTER *COLUMN* profissao TYPE varchar(20),
+ALTER *COLUMN* profissao SET DEFAULT '_blank';
+-- o default é necessário porque senão os registros anteriores
+-- ficarão sem dados, e como é not null...
+
+7. E para alterar o nome da coluna?
+ALTER TABLE pessoas
+RENAME *COLUMN* profissao TO prof;
+
+8. É possível alterar a tabela também:
+ALTER TABLE pessoas
+RENAME TO gafanhotos;
+
+9. Verificando
+\d gafanhotos;
+
+10. Criação da nova tabela
+CREATE TABLE IF NOT EXISTS cursos (
+    idcurso smallserial PRIMARY KEY,
+    -- UNIQUE assegura que todos os valores serão únicos
+    nome character varying(30) NOT NULL UNIQUE,
+    descricao text,
+    -- UNSIGNED que ele cita não tem no PostgreSQL, gambi then.
+    carga int4 CHECK (carga > 0),
+    totaulas int4,
+    ano character varying(4) DEFAULT '2019'
+);
+
+"Mas qual a diferença entre <PRIMARY KEY> e <UNIQUE>?"
+→ PK além de ter a CONSTRAINT UNIQUE, têm outras características também.
+
+11. Modificando o CHECK acima
+\d cursos;
+ALTER TABLE cursos
+DROP *CONSTRAINT* IF EXISTS <constraint_name>
+ALTER TABLE cursos
+ADD CONSTRAINT check_positive check (carga >= 0);

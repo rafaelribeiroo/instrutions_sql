@@ -9,7 +9,7 @@ CREATE TABLE pessoas (
     id smallserial PRIMARY KEY,
     nome varchar(30) NOT NULL,
     nascimento date,
-    sexo definicao default 'M',
+    sexo definicao DEFAULT 'M',
     peso decimal(5, 2),
     altura decimal(3, 2),
     nacionalidade varchar(20) DEFAULT 'Brasil'

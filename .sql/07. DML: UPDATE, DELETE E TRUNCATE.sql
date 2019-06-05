@@ -18,7 +18,7 @@ VALUES
 
 UPDATE cursos
 SET ano = '2050', carga = '800'
-WHERE ano = '2018' and totaulas = 30;
+WHERE ano = '2018' AND totaulas = 30;
 
 DELETE FROM cursos
 WHERE ano = '2018';

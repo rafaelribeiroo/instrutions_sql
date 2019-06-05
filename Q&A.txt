@@ -1,0 +1,18 @@
+Quando utilizar DB relacional ao invés do não-relacional?
+Sua estrutura será pré-estipulada? Se sim, utilize relacional.
+
+O que seria TNSnames.ora?
+Serviço que roda junto (apartado) com o banco, é um listener que fica escutando
+uma porta na máquina, quando chega uma conexão, ele envia pro BD.
+
+O que é Tablespace?
+Tablespace é como os diretórios do windows;
+	>> Toda pasta deve apontar para um arquivo (dbf).
+	>> Com seu devido espaço de armazenamento.
+
+Mas qual a diferença entre VAR e VarChar?
+Se você definir que um atributo com tipo primitivo usará 100 caracteres, ele
+ocupará todos, já o VarChar usará apenas o que você digitou.
+
+Qual a diferença entre <PRIMARY KEY> e <UNIQUE>?
+→ PK além de ter a CONSTRAINT UNIQUE, têm outras características também.

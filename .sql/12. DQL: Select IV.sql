@@ -2,9 +2,6 @@
 
 \connect curso_em_video;
 
-SELECT carga, COUNT(nome) FROM cursos
-GROUP BY carga;
-
 SELECT carga, count(nome) FROM cursos
 WHERE totaulas = 30
 GROUP BY carga;

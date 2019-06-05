@@ -7,7 +7,7 @@ ADD COLUMN profissao varchar(10);
 
 ALTER TABLE pessoas
 ALTER COLUMN profissao TYPE varchar(20),
-ALTER COLUMN profissao SET default '_blank';
+ALTER COLUMN profissao SET DEFAULT '_blank';
 
 ALTER TABLE pessoas
 RENAME COLUMN profissao TO prof;
@@ -16,10 +16,10 @@ ALTER TABLE pessoas
 RENAME TO gafanhotos;
 
 CREATE TABLE IF NOT EXISTS cursos (
-    idcurso smallserial primary key,
-    nome character varying(30) not null unique,
+    idcurso smallserial PRIMARY KEY,
+    nome character varying(30) NOT NULL UNIQUE,
     descricao text,
-    carga int4 check (carga >= 0),
+    carga int4 CHECK (carga >= 0),
     totaulas int4,
-    ano character varying(4) default '2019'
+    ano character varying(4) DEFAULT '2019'
 );

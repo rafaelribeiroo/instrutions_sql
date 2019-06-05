@@ -40,20 +40,20 @@ ORDER BY nacionalidade;
 
 Funções de AGREGAÇÃO: Selecionar/Totalizar
 
-1. QNTDE de registros específicos
+1. QNTDE de registros cuja carga é acima de 40
 SELECT COUNT(*) FROM cursos
 WHERE carga > 40;
 
-2. Dentre todos os cursos, a maior carga
+2. Dentre todos os cursos, mostre a maior carga
 SELECT MAX(carga) as maior_carga
 FROM cursos;
 
-3. Nos cursos de 2016, o máximo de aulas que dei em um curso
+3. Nos cursos de 2016, mostre a maior totalidade de aulas em um único curso
 SELECT MAX(totaulas) FROM cursos
 WHERE ano = '2016';
 
 4. Pelos cursos ministrados em 2016, qual foi a mínima totalidade de aulas que
-dei em um curso, printando meu nome
+dei em um curso, printando qual foi
 SELECT MIN(nome), MIN(totaulas) FROM cursos
 WHERE ano = '2016';
 
@@ -61,6 +61,6 @@ WHERE ano = '2016';
 SELECT sum(totaulas) FROM cursos
 where ano = '2016';
 
-6. Tirar a média (average)
+6. Tirar a média do total de aulas de 2016
 SELECT AVG(totaulas) FROM cursos
 WHERE ano = '2016';

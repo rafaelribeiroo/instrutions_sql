@@ -2,57 +2,57 @@ Priori: DB contém TABELAS > contém REGISTROS > compostos por CAMPOS.
 
 Analogia para entender a estrutura:
 
-	Suponhamos que tenho um amigo
-	chamado Godofredo, possuindo
-	as características
-	(ATRIBUTOS):					   Ele se casou com a Dolores, que tem:
-	> Idade: 32 anos				   > Idade: 30 anos
-	> Sexo: Masc					   > Sexo: Fem
-	> Peso: 78.5 Kg				       > Peso: 52.3 Kg
-	> Altura: 1.83 m				   > Altura: 1.65m
-	> Nacionalidade: Brasil			   > Nacionalidade: México
+    Suponhamos que tenho um amigo
+    chamado Godofredo, possuindo
+    as características
+    (ATRIBUTOS):                       Ele se casou com a Dolores, que tem:
+    > Idade: 32 anos                   < Idade: 30 anos
+    > Sexo: Masc                       < Sexo: Fem
+    > Peso: 78.5 Kg                    < Peso: 52.3 Kg
+    > Altura: 1.83 m                   < Altura: 1.65m
+    > Nacionalidade: Brasil            < Nacionalidade: México
 
-	Agruparemos essa família em um contêiner nomeado: 'Pessoas', é de
-	conhecimento geral que todos os registros acima possuem as mesmas
-	características, o que nomeamos de: "INSTÂNCIAS".
-		> Esse é o objetivo do DB, REGISTRAR INSTÂNCIAS SEPARADAS
-		de coisas que tem características semelhantes.
+    Agruparemos essa família em um contêiner nomeado: 'Pessoas', é de
+    conhecimento geral que todos os registros acima possuem as mesmas
+    características, o que nomeamos de: "INSTÂNCIAS".
+        > Esse é o objetivo do DB, REGISTRAR INSTÂNCIAS SEPARADAS
+        de coisas que tem características semelhantes.
 
-	Suponhamos que temos um outro contêiner chamado: 'Jogos', que por sua vez
-	conterá	outras características, como: nome/data_lançamento/plataforma
-		> Adicionaremos agora todos esses contêineres em um único navio (DB).
+    Suponhamos que temos um outro contêiner chamado: 'Jogos', que por sua vez
+    conterá outras características, como: nome/data_lancamento/plataforma
+        > Adicionaremos agora todos esses contêineres em um único navio (DB).
 
 Contexto de DB:
 
-	> O NAVIO é nosso BANCO DE DADOS (Coleções de dados);
-	> Os CONTÊINERES são nossas TABELAS (Conjunto de características
-	semelhantes);
-	> Os dados (INSTÂNCIAS) que estão dentro das tabelas são meus REGISTROS.
+    → O NAVIO é nosso BANCO DE DADOS (Coleções de dados);
+    → Os CONTÊINERES são nossas TABELAS (Conjunto de características
+    semelhantes);
+    → Os dados (INSTÂNCIAS) que estão dentro das tabelas são meus REGISTROS.
 
 Prática:
 
-	1. Acessando o console
-	sudo -u postgres psql
+    1. Acessando o console
+    sudo -u postgres psql
 
-	2. Criar DB
-	CREATE DATABASE <db_name>;
+    2. Criar DB
+    CREATE DATABASE <db_name>;
 
-	3. DB existentes
-	\l  -- \q to exit
+    3. DB existentes
+    \l  -- \q to exit
 
-	4. Access DB
-	\c <db_name>;  -- \c postgres postgres
+    4. Access DB
+    \c <db_name>;  -- \c postgres postgres
 
-	5. Criar Table (See: "Tipos Primitivos.txt")
-	CREATE TABLE <table_name> (
-		-- <nome_coluna> <tipo_primário>(limite_entrada_dados),
-	);
+    5. Criar Table (See: "Tipos Primitivos.txt")
+    CREATE TABLE <table_name> (
+        -- <nome_coluna> <tipo_primário>(limite_entrada_dados),
+    );
 
-	6. All tables from DB
-	\dt
+    6. All tables from DB
+    \dt
 
-	7. Table details
-	\d <table_name>;
+    7. Table details
+    \d <table_name>;
 
-	8. Clear
-	\! clear
+    8. Clear
+    \! clear
