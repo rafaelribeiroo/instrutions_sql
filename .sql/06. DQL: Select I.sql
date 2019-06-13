@@ -6,19 +6,19 @@ CREATE TABLE IF NOT EXISTS gafanhotos (
     nome varchar(30) NOT NULL,
     profissao varchar(20),
     nascimento date,
-    sexo definicao default 'M',
+    sexo definicao DEFAULT 'M',
     peso decimal(5, 2),
     altura decimal(3, 2),
     nacionalidade varchar(20) DEFAULT 'Brasil'
 );
 
 CREATE TABLE IF NOT EXISTS cursos (
-    id smallserial primary key,
-    nome character varying(30) not null unique,
+    id smallserial PRIMARY KEY,
+    nome character varying(30) NOT NULL UNIQUE,
     descricao text,
-    carga int4 check (carga >= 0),
+    carga int4 CHECK (carga >= 0),
     totaulas int4,
-    ano character varying(4) default '2018'
+    ano character varying(4) DEFAULT '2018'
 );
 
 INSERT INTO gafanhotos

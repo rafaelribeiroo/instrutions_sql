@@ -24,3 +24,6 @@ DELETE FROM cursos
 WHERE ano = '2018';
 
 TRUNCATE cursos;
+
+DROP TABLE cursos;
+DROP TABLE gafanhotos;

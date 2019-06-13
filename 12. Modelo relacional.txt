@@ -5,20 +5,24 @@ Recordação de alguns conceitos
 
 DER: Ele mostra como o modelo relacional está sendo aplicado dentro desse
 mini-mundo/possibilidade/situação que eu quero criar um banco de dados
-(maneira gráfica de representação);
+(maneira gráfica de representação).
+    > Posso criar várias situações com minhas tabelas;
+    Entidades: Gafanhoto/Curso
+    Posso relacionar como PREFERE (Ngafanhoto-1curso)
+    Posso relacionar como ASSISTE (Ngafanhoto-Ncurso)
 
 PK → Atributo específico que identifica as tuplas. Um atributo que vai fazer
 com que nenhuma das tuplas... (Ex: Marido/Nenhum dos maridos tem um
 atributo igual ao outro, qual é? CPF por exemplo! CPF então seria
 a PK da entidade marido);
 
-FK → Para compreender, vamos usar a analogia do mundo; Imagine o globo onde
+FK → Para compreender, vamos usar a analogia do mundo. Imagine o globo onde
 há vários continentes e países... Vamos supor que um determinado continente
-é uma entidade: "X" que possui uma PK, do outro lado, tenho uma entidade:
-"Y" que também tem sua chave primária. Se eu quiser fazer uma relação
+é uma entidade: "X" que possui uma PK, do outro lado, tenho uma entidade
+"Y" que também tem sua chave primária. Então criamos uma relação
 entre uma entidade e outra, que nada mais é que troca de chaves
-primárias (dados), então quando minha chave primária de X vai
-pra Y, ela se transforma em chave estrangeira.
+primárias (dados), quando minha chave primária de X vai pra Y,
+ela se transforma em chave estrangeira.
 
 → Regras de CARDINALIDADE (Classificação de Relacionamento)
 
