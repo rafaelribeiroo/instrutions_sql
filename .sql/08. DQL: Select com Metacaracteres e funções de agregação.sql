@@ -1,4 +1,4 @@
--- Canalizando as práticas do arquivo: 11. Select...
+-- Canalizando as práticas do arquivo: 10. Select...
 
 \connect curso_em_video;
 
@@ -23,7 +23,7 @@ WHERE ano = '2016';
 SELECT MIN(nome), MIN(totaulas) FROM cursos
 WHERE ano = '2016';
 
-SELECT sum(totaulas) FROM cursos
+SELECT SUM(totaulas) FROM cursos
 where ano = '2016';
 
 SELECT AVG(totaulas) FROM cursos

@@ -1,4 +1,4 @@
--- Canalizando as práticas do arquivo: 14. Chaves...
+-- Canalizando as práticas do arquivo: 13. Chaves...
 
 \connect curso_em_video;
 
@@ -18,21 +18,21 @@ DELETE FROM cursos
 WHERE id = 6;
 
 SELECT g.nome, c.nome, c.ano
-FROM gafanhotos g INNER JOIN cursos c
+FROM gafanhotos g INNER JOIN cursos c  -- or JOIN
 ON (c.id = g.cursopreferido)
 ORDER BY g.nome;
 
 SELECT g.nome, c.nome, c.ano
-FROM gafanhotos g LEFT OUTER JOIN cursos c
+FROM gafanhotos g LEFT OUTER JOIN cursos c  -- or LEFT JOIN
 ON (c.id = g.cursopreferido)
 ORDER BY g.nome;
 
 SELECT g.nome, c.nome, c.ano
-FROM gafanhotos g RIGHT OUTER JOIN cursos c
+FROM gafanhotos g RIGHT OUTER JOIN cursos c  -- or RIGHT JOIN
 ON (c.id = g.cursopreferido)
 ORDER BY c.nome;
 
 SELECT g.nome, c.nome, c.ano
-FROM gafanhotos g FULL OUTER JOIN cursos c
+FROM gafanhotos g FULL OUTER JOIN cursos c  -- or FULL JOIN
 ON (c.id = g.cursopreferido)
 order by g.nome;

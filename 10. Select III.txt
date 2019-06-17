@@ -58,7 +58,7 @@ SELECT MIN(nome), MIN(totaulas) FROM cursos
 WHERE ano = '2016';
 
 5. Somatório de todas aulas que ministrei em 2016
-SELECT sum(totaulas) FROM cursos
+SELECT SUM(totaulas) FROM cursos
 where ano = '2016';
 
 6. Tirar a média do total de aulas de 2016

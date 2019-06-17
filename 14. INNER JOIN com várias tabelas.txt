@@ -22,8 +22,32 @@ CREATE TABLE IF NOT EXISTS gafanhoto_assiste_curso (
 INSERT INTO gafanhoto_assiste_curso
 (data, id_gafanhoto, id_curso)
 VALUES
-# Gafanhoto 1 assiste Curso 2
+-- Gafanhoto 1 assiste Curso 2
 ('2014-03-01', 1, 2),
 ('2015-12-22', 3, 6),
 ('2014-01-01', 22, 12),
 ('2016-05-12', 1, 19);
+
+3. Retorna todas as colunas das duas tabelas
+SELECT * FROM gafanhotos g
+JOIN gafanhoto_assiste_cursoso a
+ON g.id = a.id_gafanhoto;
+
+4. Filtrando as colunas
+-- Nome tal está fazendo o curso tal
+SELECT g.nome, a.id_curso FROM gafanhotos g
+JOIN gafanhoto_assiste_curso a
+ON g.id = a.id_gafanhoto
+ORDER BY g.nome;
+
+"Mas eu não quero o ID do curso, quero o Nome do curso, o que eu faço?"
+Temos que referenciar a 3ª tabela/entidade
+
+5. Uso outro JOIN
+SELECT g.nome, c.nome AS curso_sendo_realizado FROM gafanhotos g
+JOIN gafanhoto_assiste_curso a
+ON g.id = a.id_gafanhoto
+JOIN cursos c
+-- Posso escolher qualquer um dos lados
+ON c.id = a.id_curso
+ORDER BY g.nome;
