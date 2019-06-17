@@ -1,0 +1,53 @@
+Priori: A chave estrangeira deve ser do mesmo tipo da chave primária que ela
+veio, o nome não importa.
+"Mas você colocou smallint para incrementar automaticamente os IDs e aqui int4"
+> Sim, mas ambos são numéricos e aceitam os mesmos valores.
+
+Como visto no arquivo: "13", pegamos as entidades "Gafanhoto" e "Curso" e
+atribuímos a relação prefere, que interligaram por meio de um-para-muitos
+
+Aqui, vamos utilizar a regra de cardinalidade: "muitos-para-muitos", então
+passaremos a relação de PREFERE para ASSISTE
+    > No muitos para muitos, a relação vira uma tabela;
+
+1. Criação da tabela que antes era apenas a relação
+CREATE TABLE IF NOT EXISTS gafanhoto_assiste_curso (
+    id smallserial NOT NULL PRIMARY KEY,
+    data date,
+    id_gafanhoto int4 REFERENCES gafanhotos (id),
+    id_curso int4 REFERENCES cursos(id)
+);
+
+2. Agora, como colocaremos dados na nova tabela? Simples...
+INSERT INTO gafanhoto_assiste_curso
+(data, id_gafanhoto, id_curso)
+VALUES
+-- Gafanhoto 1 assiste Curso 2
+('2014-03-01', 1, 2),
+('2015-12-22', 3, 6),
+('2014-01-01', 22, 12),
+('2016-05-12', 1, 19);
+
+3. Retorna todas as colunas das duas tabelas
+SELECT * FROM gafanhotos g
+JOIN gafanhoto_assiste_cursoso a
+ON g.id = a.id_gafanhoto;
+
+4. Filtrando as colunas
+-- Nome tal está fazendo o curso tal
+SELECT g.nome, a.id_curso FROM gafanhotos g
+JOIN gafanhoto_assiste_curso a
+ON g.id = a.id_gafanhoto
+ORDER BY g.nome;
+
+"Mas eu não quero o ID do curso, quero o Nome do curso, o que eu faço?"
+Temos que referenciar a 3ª tabela/entidade
+
+5. Uso outro JOIN
+SELECT g.nome, c.nome AS curso_sendo_realizado FROM gafanhotos g
+JOIN gafanhoto_assiste_curso a
+ON g.id = a.id_gafanhoto
+JOIN cursos c
+-- Posso escolher qualquer um dos lados
+ON c.id = a.id_curso
+ORDER BY g.nome;

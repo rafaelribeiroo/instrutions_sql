@@ -37,6 +37,18 @@ em todos os registros, SEM CTRL + Z.
 DELETE FROM cursos
 WHERE ano='2018';
 
-6. Apagar LIKE A THANOS
-TRUNCATE cursos;
-TRUNCATE gafanhotos;
+6. Recuperando ordem sequencial
+ALTER SEQUENCE <tablename_column_seq> RESTART WITH <número_ordem_sequencial>;
+-- Ao deletarmos, ficará um buraco nos ID's da tabela, então se precisarmos,
+-- podemos resetar a ordem crescente dos IDs para ficar sem nenhum intervalo
+
+7. Apagando LIKE A THANOS
+TRUNCATE cursos RESTART IDENTITY;
+TRUNCATE gafanhotos RESTART IDENTITY;
+-- Ao inserirmos tuplas nas nossas tabelas, mesmo que excluamos posteriormente,
+-- o DB vai guardar o último ID em que paramos e ao inserir um novo, vai alocar
+-- um a mais do último ID, então instruímos para restartar as identidades pro 1
+
+8. Apagando a estrutura da tabela
+DROP TABLE cursos;
+DROP TABLE gafanhotos;
