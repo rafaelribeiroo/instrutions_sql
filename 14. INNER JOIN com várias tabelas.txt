@@ -10,7 +10,7 @@ Aqui, vamos utilizar a regra de cardinalidade: "muitos-para-muitos", então
 passaremos a relação de PREFERE para ASSISTE
     > No muitos para muitos, a relação vira uma tabela;
 
-# Criação da tabela que antes era apenas a relação
+1. Criação da tabela que antes era apenas a relação
 CREATE TABLE IF NOT EXISTS gafanhoto_assiste_curso (
     id smallserial NOT NULL PRIMARY KEY,
     data date,
@@ -18,13 +18,12 @@ CREATE TABLE IF NOT EXISTS gafanhoto_assiste_curso (
     id_curso int4 REFERENCES cursos(id)
 );
 
-# Agora, como colocaremos dados na nova tabela?
+2. Agora, como colocaremos dados na nova tabela? Simples...
 INSERT INTO gafanhoto_assiste_curso
 (data, id_gafanhoto, id_curso)
 VALUES
-# Gafanhoto 1 assiste curso 2
-('2014-03-01', '1', '2'),
-('2015-12-22', '3', '6'),
-('2014-01-01', '22', '12'),
-('2016-05-12', '1', '19');
-
+# Gafanhoto 1 assiste Curso 2
+('2014-03-01', 1, 2),
+('2015-12-22', 3, 6),
+('2014-01-01', 22, 12),
+('2016-05-12', 1, 19);
