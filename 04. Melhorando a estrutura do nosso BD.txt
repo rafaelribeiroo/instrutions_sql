@@ -50,6 +50,7 @@ Não! Já que podem ter várias pessoas com o mesmo nome (homônimo), agora CPF/
 único para cada indivíduo, pois então...
 
 5. Recriação com chave primária
+-- Removendo a tabela criada previamente
 DROP TABLE pessoas;
 CREATE TYPE definicao AS ENUM ('M', 'F');
 CREATE TABLE pessoas (

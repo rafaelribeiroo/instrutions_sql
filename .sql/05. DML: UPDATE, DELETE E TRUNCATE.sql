@@ -23,7 +23,9 @@ WHERE ano = '2018' AND totaulas = 30;
 DELETE FROM cursos
 WHERE ano = '2018';
 
-TRUNCATE cursos;
+ALTER SEQUENCE <tablename_column_seq> RESTART WITH 1;
+
+TRUNCATE cursos RESTART IDENTITY;
 
 DROP TABLE cursos;
 DROP TABLE gafanhotos;

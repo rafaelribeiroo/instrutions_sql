@@ -23,3 +23,5 @@ CREATE TABLE IF NOT EXISTS cursos (
     totaulas int4,
     ano character varying(4) DEFAULT '2019'
 );
+
+-- DROP TABLE IF EXISTS cursos;
