@@ -20,6 +20,9 @@ UPDATE cursos
 SET ano = '2050', carga = '800'
 WHERE ano = '2018' AND totaulas = 30;
 
+ALTER TABLE cursos
+ALTER COLUMN ano DROP DEFAULT;
+
 DELETE FROM cursos
 WHERE ano = '2018';
 
