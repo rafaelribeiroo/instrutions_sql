@@ -18,14 +18,12 @@ Qual a diferença entre <PRIMARY KEY> e <UNIQUE>?
 → PK além de ter a CONSTRAINT UNIQUE, têm outras características também.
 
 Qual a diferença entre <DECIMAL>, <FLOAT> e <DOUBLE>?
-
-    Capacidade de armazenamento
-        Float suporta 7 díg. (32bit)
-        Double suporta 15/16 díg. (64bit)
-        Decimal 28-29 díg. (128bit)
+Capacidade de armazenamento
+    ← Float suporta 7 díg. (32bit)
+    ← Double suporta 15/16 díg. (64bit)
+    ← Decimal 28-29 díg. (128bit)
 
 O que são triggers?
-
-    São gatilhos de banco de dados, as funções que são chamadas automaticamente
-    após a decorrência de algum evento.
-    Eventos: INSERT/UPDATE/DELETE/...
+São gatilhos de banco de dados, as funções que são chamadas automaticamente
+após a decorrência de algum evento.
+Eventos: INSERT/UPDATE/DELETE/...
