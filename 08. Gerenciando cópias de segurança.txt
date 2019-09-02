@@ -1,33 +1,32 @@
 Priori: O BACKUP do nosso BD é chamado de DUMP.
 
-1. Vá até o PGAdmin4, autentique e clique com o botão direito no DB > Backup
+1. Vá até o PGAdmin4 e clique com o botão direito no banco de dados desejado.
+    → BACKUP;
+    → Nomeação do arquivo de backup: "pg_dump?!".
 
-2. Nomeie o filename
+2. Configurações do DUMP
+    → Opte pelo formato: "CUSTOM";
+    → UTF-8: Codificação padrão;
+    → Role name: Postgres.
 
-3. Formato: CUSTOM
+3. Backup;
 
-4. Encoding: UTF-8
+RECUPERAÇÃO
 
-5. Role name: Postgres
+1. Acesse a ferramenta de realizar queries (localizada no botão direito) e
+vamos "acidentalmente" deletar tudo.
+    → DROP TABLE cursos;
+    → DROP TABLE gafanhotos;
+    → SELECT * FROM cursos;
 
-> Backup;
+2. Acesse a opção: "Restore", localizada no botão direito sob o DB.
+    → Opte pelo formato: "CUSTOM";
+    → Selecione o arquivo de dump: "pg_dump";
+    → Role name: Postgres.
 
-Voltando Backup
-
-1. Query Tool (botão direito)
-DROP TABLE cursos;
-DROP TABLE gafanhotos;
+3. Acesse novamente a ferramenta de realizar queries.
 SELECT * FROM cursos;
-SELECT * FROM gafanhotos;
 
-2. Botão direito > Restore...
-
-3. Formato Custom
-
-4. Selecione o arquivo de dump
-
-5. Role name: Postgres
-
-6. Query Tool
-SELECT * FROM cursos;
-SELECT * FROM gafanhotos;
+Ou, se tiver usando o framework DJANGO:
+$ python manage.py dumpdata --indent 4 --format json -e contenttypes > db.json
+$ python manage.py loaddata src/apps/<app_desejada>/fixture/<arquivo_dump>.json
