@@ -1,0 +1,15 @@
+O que são as views?
+Basicamente, são camadas de visões. A view vai condensar aquela instrução
+extensa em um "apelido" bem curto.
+
+1. Criando uma view básica, porém todas seguem a mesma lógica.
+CREATE VIEW multiplos_join AS
+    SELECT g.nome, c.nome AS curso_sendo_realizado FROM gafanhotos g
+    JOIN gafanhoto_assiste_curso a
+    ON g.id = a.id_gafanhoto
+    JOIN cursos c
+    ON c.id = a.id_curso
+    ORDER BY g.nome;
+
+2. Logo após criarmos, basta realizar a chamada
+SELECT * FROM multiplos_join;

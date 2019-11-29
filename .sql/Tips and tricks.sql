@@ -8,3 +8,6 @@ SELECT pg_size_pretty( pg_database_size('<name_db>'));
 -- Ver quanto armazenamento estou usando na tabela
 SELECT pg_size_pretty( pg_total_relation_size('<table_name>'));
 VACUUM(FULL, ANALYZE, VERBOSE) <table_name>(column);
+
+-- Alternando máscara de datas
+SELECT to_char("<column_name>", 'DD/MM/YYYY') from <table_name>;

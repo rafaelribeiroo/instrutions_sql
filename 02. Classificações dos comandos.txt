@@ -8,7 +8,7 @@ com um símbolo de = e não -
 	→ DML (MANIPULAÇÃO): Registrar/Apagar/Manipular DADOS;
 	→ DQL (SOLICITAÇÕES): SELECT;
 	→ DCL (CONTROLE): Definição de quais usuários poderão acessar meu banco.
-    Tipo do acesso, tipos de comando que eles poderão executar.
+    Comandos para controlar a parte de segurança. GRANT/REVOKE.
 	→ DTL (TRANSAÇÕES): Qualquer solicitação que pode ser feita a um banco de
 	dados, com ele te atendendo seguindo a: "DICA" abaixo.
 		< 4 características de uma boa transação:

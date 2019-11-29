@@ -41,18 +41,24 @@ Prática:
     \l  -- \q to exit
 
     4. Access DB
-    \c <db_name>;  -- \c postgres postgres
+    \c <db_name>  -- \c postgres postgres
 
     5. Criar Table (See: "Tipos Primitivos.txt")
     CREATE TABLE <table_name> (
-        -- <nome_coluna> <tipo_primário>(limite_entrada_dados),
+        -- <coluna> <tipo_primário>(limite_entrada_dados),
     );
 
     6. All tables from DB
     \dt
 
     7. Table details
-    \d <table_name>;
+    \d <table_name>
 
-    8. Clear
+    8. Which users has privileges on table
+    \dp <table_name>
+
+    9. See all schemas
+    \dn
+
+    10. Clear
     \! clear

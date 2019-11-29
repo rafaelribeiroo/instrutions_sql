@@ -1,4 +1,4 @@
-> Configurando PGADMIN 4, utilitário de administração gráfica
+> Configurando instância (utilitário de administração gráfica)
 
 GENERAL
 Name: root

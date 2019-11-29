@@ -1,5 +1,9 @@
-Priori: Essa aula é para distinguir
-Próximo arquivo: 'Agrupar'
+Priori: Como visto no arquivo: "05. Inserindo...", decore apenas o nome do meio
+    DDL → Definition (DB)
+    DML → Manipulation (Data)
+    DQL → Query (Searching)
+
+Aprendemos a ordenar no anterior, agora vamos distinguir, e na próxima: agrupar
 
 1. Selecionar dados que pareçam com: "P...", ILIKE não tem diferenciação de aA
 SELECT * FROM cursos
