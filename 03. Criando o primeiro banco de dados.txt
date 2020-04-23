@@ -33,6 +33,8 @@ Prática:
 
     1. Acessando o console
     sudo -u postgres psql
+    # ou
+    psql -U <user> -d <database>
 
     2. Criar DB
     CREATE DATABASE <db_name>;
