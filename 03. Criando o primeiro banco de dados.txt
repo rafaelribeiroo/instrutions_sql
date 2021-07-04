@@ -39,10 +39,10 @@ Prática:
     2. Criar DB
     CREATE DATABASE <db_name>;
 
-    3. DB existentes
+    3. Show databases
     \l  -- \q to exit
 
-    4. Access DB
+    4. Connect to a DB
     \c <db_name>  -- \c postgres postgres
 
     5. Criar Table (See: "Tipos Primitivos.txt")
@@ -50,7 +50,7 @@ Prática:
         -- <coluna> <tipo_primário>(limite_entrada_dados),
     );
 
-    6. All tables from DB
+    6. Show tables
     \dt
 
     7. Table details
@@ -62,5 +62,8 @@ Prática:
     9. See all schemas
     \dn
 
-    10. Clear
+    10. Show roles
+    \du
+
+    11. Clear
     \! clear
