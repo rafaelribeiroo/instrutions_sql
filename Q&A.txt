@@ -27,3 +27,8 @@ O que são triggers?
 São gatilhos de banco de dados, as funções que são chamadas automaticamente
 após a decorrência de algum evento.
 Eventos: INSERT/UPDATE/DELETE/...
+
+O que é o dry-run, comumente utilizado no BigQuery?
+O comando dry-run possibilita checar o custo total da query antes da execução,
+lembrando que o custo atual é de U$ 5 por TB processado (contando join
+adicional ou não utilizar o limit adequadamente).
